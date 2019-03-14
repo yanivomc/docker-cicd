@@ -18,8 +18,8 @@ node {
    }
    stage('docker run') {
      sh label: '', script: '''docker run -tid --name docker_test -p 3000 yanivomc/docker-nodejs-demo:${commit_id}
-docker kill docker_test
-'''
+      docker kill docker_test
+      '''
      }
    }
-}
+
