@@ -12,7 +12,7 @@ node {
      }
    }
    stage('docker build/push') {
-     docker.withRegistry('https://index.docker.io/v1/', 'ae5596db-c1d3-4b8e-9c7a-cc29d0c296ee') {
+     docker.withRegistry('https://index.docker.io/v1/', 'dockeryaniv') {
        def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", '.').push()
      }
    }
