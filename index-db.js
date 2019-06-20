@@ -8,7 +8,7 @@ var con = mysql.createConnection({ host: process.env.MYSQL_HOST, user: process.e
 con.connect(function(err){
   if(err){
     console.log('Error connecting to db: ', err);
-    return;
+    return; 
   }
   console.log('Connection to db established');
   con.query('CREATE TABLE IF NOT EXISTS visits (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ts BIGINT)',function(err) {
