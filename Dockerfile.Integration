@@ -12,4 +12,4 @@ COPY . .
 
 WORKDIR /home/app/Integration/
 
-ENTRYPOINT ["dotnet", "test", "--verbosity=normal"]
+#ENTRYPOINT ["dotnet", "test", "--verbosity=normal"]
