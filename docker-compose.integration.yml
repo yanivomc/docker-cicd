@@ -13,12 +13,16 @@ services:
       - dbdata:/var/lib/mysql
       - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
     restart: always
+    networks: 
+      - jb
   account_app:
     depends_on:
       - db
     image: "account_app:B${BUILD_NUMBER}"
     build:
       context: .
+    networks: 
+      - jb
   integration:
     depends_on:
       - account_app
@@ -28,5 +32,11 @@ services:
       dockerfile: Dockerfile.Integration
     environment:
       - TEAMCITY_PROJECT_NAME
+    networks: 
+      - jb
 volumes:
     dbdata:
+
+
+networks: 
+  jb:
