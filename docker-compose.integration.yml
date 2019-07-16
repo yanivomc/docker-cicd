@@ -13,16 +13,16 @@ services:
       - dbdata:/var/lib/mysql
       - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
     restart: always
-  accountownerapp:
+  account_app:
     depends_on:
       - db
-    image: "accountownerapp:B${BUILD_NUMBER}"
+    image: "account_app:B${BUILD_NUMBER}"
     build:
       context: .
   integration:
     depends_on:
-      - accountownerapp
-    image: "accountownerapp:test-B${BUILD_NUMBER}"
+      - account_app
+    image: "account_app:test-B${BUILD_NUMBER}"
     build:
       context: .
       dockerfile: Dockerfile.Integration
