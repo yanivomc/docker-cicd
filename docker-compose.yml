@@ -1,7 +1,7 @@
 version: '3.1'
 services:
     jenkins:
-        build: ./master
+        build: ./jenkins/master
         image: jenkins-jb/master:1.0
         container_name: jenkins
         ports:
@@ -10,7 +10,7 @@ services:
         networks: 
             - jb
     jenkins-slave:
-        build: ./slave
+        build: ./jenkins/slave
         image: jenkins-jb/slave:1.0
         container_name: jenkins-slave
         restart: always
