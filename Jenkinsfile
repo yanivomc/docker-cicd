@@ -1,4 +1,4 @@
-node('docker') {
+node('docker-slave-0d1cf2ec3e3f') {
 
     stage 'Checkout'
         checkout scm
