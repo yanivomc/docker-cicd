@@ -1,0 +1,5 @@
+FROM mysql:5.7
+
+WORKDIR /home/app
+
+COPY ./init.sql /docker-entrypoint-initdb.d/

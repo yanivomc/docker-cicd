@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   db:
-    image: mysql:5.7
+    image: account_app/mysql:latest
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_DATABASE: accountowner
@@ -11,7 +11,7 @@ services:
       DEBUG: 1
     volumes:
       - dbdata:/var/lib/mysql
-      - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
+      # - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
     restart: always
     networks: 
       - jb
