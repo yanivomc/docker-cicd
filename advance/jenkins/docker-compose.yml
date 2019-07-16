@@ -18,7 +18,7 @@ services:
             - 'JENKINS_URL=http://jenkins:8080'
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
-            - /home/jenkins:/home/jenkins # Avoid mysql volume mount issue
+            - ./volume:/home/jenkins # Avoid mysql volume mount issue
         networks: 
         - jb
         depends_on:

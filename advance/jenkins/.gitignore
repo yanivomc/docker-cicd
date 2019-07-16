@@ -1,0 +1,18 @@
+#  Local .terraform directories
+**/.terraform/*
+**/volume/*
+
+
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.log
+
+
+# .tfvars files
+*.tfvars
+IAC/Terraform/vsphere/packer/configs/files.tar
+IAC/Docker/rancher/airgap/rancher-images.tar.gz
+IAC/Docker/rancher/airgap/other-images.tar.gz
+IAC/Terraform/vsphere/packer/images/rancheros.tar.gz
