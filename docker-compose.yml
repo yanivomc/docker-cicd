@@ -1,28 +1,26 @@
-version: '3.1'
-services:
-    jenkins:
-        build: ./jenkins/master
-        image: jenkins-jb/master:1.0
-        container_name: jenkins
-        ports:
-            - '8080:8080'
-            - '50000:50000'
-        networks: 
-            - jb
-    jenkins-slave:
-        build: ./jenkins/slave
-        image: jenkins-jb/slave:1.0
-        container_name: jenkins-slave
-        restart: always
-        environment:
-            - 'JENKINS_URL=http://jenkins:8080'
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
-            - ./volume:/home/jenkins # Avoid mysql volume mount issue
-        networks: 
-        - jb
-        depends_on:
-            - jenkins
+version: '3.0'
 
-networks: 
-  jb:
+services:
+   db:
+     image: mysql:5.7
+     environment:
+       MYSQL_RANDOM_ROOT_PASSWORD: 1
+       MYSQL_DATABASE: accountowner
+       MYSQL_USER: dbuser
+       MYSQL_PASSWORD: dbuserpassword
+     volumes:
+       - dbdata:/var/lib/mysql
+       - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
+     restart: always
+
+   accountownerapp:
+     depends_on:
+       - db
+     image: codemazeblog/accountownerapp
+     build:
+       context: .
+     ports:
+       - "8080:80"
+
+volumes:
+    dbdata:

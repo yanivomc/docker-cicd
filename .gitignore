@@ -1,18 +1,23 @@
-#  Local .terraform directories
-**/.terraform/*
-**/volume/*
-
-
-
-# .tfstate files
-*.tfstate
-*.tfstate.*
-*.log
-
-
-# .tfvars files
-*.tfvars
-IAC/Terraform/vsphere/packer/configs/files.tar
-IAC/Docker/rancher/airgap/rancher-images.tar.gz
-IAC/Docker/rancher/airgap/other-images.tar.gz
-IAC/Terraform/vsphere/packer/images/rancheros.tar.gz
+**/volume*
+/AccountOwnerServer/obj
+/AccountOwnerServer/bin
+/AccountOwnerServer/Projects
+/Contracts/obj
+/Contracts/bin
+/Entities/obj
+/Entities/bin
+/LoggerService/obj
+/LoggerService/bin
+/Repository/obj
+/Repository/bin
+/Tests/bin
+/Tests/obj
+publish
+/.vs
+/AccountOwnerServer/internallog.txt
+/Integration/obj
+/Integration/bin
+/AccountOwnerServer/*.user
+/Tests/*.user
+/Integration/*.user
+.vscode/settings.json

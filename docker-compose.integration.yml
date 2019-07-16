@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   db:
-    image: account_app/mysql:latest
+    image: mysql:5.7
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1
       MYSQL_DATABASE: accountowner
@@ -11,32 +11,22 @@ services:
       DEBUG: 1
     volumes:
       - dbdata:/var/lib/mysql
-      # - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
+      - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
     restart: always
-    networks: 
-      - jb
-  account_app:
+  accountownerapp:
     depends_on:
       - db
-    image: "account_app:B${BUILD_NUMBER}"
+    image: "accountownerapp:B${BUILD_NUMBER}"
     build:
       context: .
-    networks: 
-      - jb
   integration:
     depends_on:
-      - account_app
-    image: "account_app:test-B${BUILD_NUMBER}"
+      - accountownerapp
+    image: "accountownerapp:test-B${BUILD_NUMBER}"
     build:
       context: .
       dockerfile: Dockerfile.Integration
     environment:
       - TEAMCITY_PROJECT_NAME
-    networks: 
-      - jb
 volumes:
     dbdata:
-
-
-networks: 
-  jb:
