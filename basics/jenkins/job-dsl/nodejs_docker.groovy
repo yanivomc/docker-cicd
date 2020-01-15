@@ -13,7 +13,7 @@ job('NodeJS Docker example') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('yanivomc/docker-nodejs-demo')
+            repositoryName('aaaaaaaaa/docker-nodejs-demo')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
