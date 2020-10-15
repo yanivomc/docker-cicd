@@ -1,4 +1,4 @@
-job('NodeJS Yaniv') {
+job('NodeJS Moshe') {
     scm {
         git('git://github.com/yanivomc/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
