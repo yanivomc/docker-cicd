@@ -1,4 +1,4 @@
-job('NodeJS example') {
+job('NodeJS Yaniv') {
     scm {
         git('git://github.com/yanivomc/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
@@ -6,18 +6,18 @@ job('NodeJS example') {
         }
     }
     triggers {
-        scm('H/5 * * * *')
+        scm('* * * * *')
     }
     wrappers {
         nodejs('nodejs') // this is the name of the NodeJS installation in 
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps {
-        shell("npm install")
+        shell("npm install somehitng")
     }
 }
 
-job('NodeJS Docker example') {
+job('NodeJS Docker') {
     scm {
         git('git://github.com/yanivomc/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
