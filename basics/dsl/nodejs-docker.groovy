@@ -9,7 +9,7 @@ job('NodeJS Docker example') {
         scm('H/5 * * * *')
     }
    
-    }
+    
     steps {
         dockerBuildAndPublish {
             repositoryName(yanivomc/amdocs-app)
