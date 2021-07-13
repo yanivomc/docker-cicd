@@ -15,7 +15,7 @@ job('NodeJS Docker example') {
             repositoryName(yanivomc/amdocs-app)
             tag('${GIT_REVISION,length=9}')
             registryCredentials('yaniv-dockerhub')
-            buildContext('./basics/'
+            buildContext('./basics/')
             forcePull(false)
             forceTag(false)
             createFingerprints(false)
