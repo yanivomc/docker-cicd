@@ -7,6 +7,7 @@ node {
    }
    stages {
        stage('build and static analysis') {
+           parallel {
             stage('dockerbuild') {
                 def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", './basics/')
                 
@@ -16,6 +17,7 @@ node {
                 
             }                   
        }
+   }
    }                  
    stage('docker build/push') {            
      sh " this is a docker push step"
