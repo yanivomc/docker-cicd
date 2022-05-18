@@ -6,7 +6,7 @@ node {
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('dockerbuild') {
-     def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", '.')
+     def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", './basics/Dockerfile')
      
    }
    stage('sonarqube tests') {
