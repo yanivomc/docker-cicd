@@ -19,7 +19,7 @@ pipeline {
           steps {
              script {
                dir('basics') {
-                def app = docker.build("stephensflynn/basics:${commit_id}", './basics/')
+                def app = docker.build("stephensflynn/basics:${commit_id}", '.')
               }  
             }
           }
