@@ -2,7 +2,7 @@ from jenkins import Jenkins, JenkinsError, NodeLaunchMethod
 import os
 import signal
 import sys
-import urllib
+import urllib.request as url
 import subprocess
 import shutil
 import requests
