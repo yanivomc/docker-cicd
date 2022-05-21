@@ -1,24 +1,30 @@
-FROM ubuntu:16.04
- 
+FROM ubuntu:latest
+
 # Install Docker CLI in the agent
 RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
-#RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-RUN echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable" > /etc/apt/sources.list.d/docker.list
-RUN apt-get update && apt-get install -y docker-ce --allow-unauthenticated
- 
-RUN apt-get update && apt-get install -y openjdk-8-jre curl python python-pip git
+RUN apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
+RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN apt update && apt -y install docker-ce docker-ce-cli containerd.io
+
+# configure python3.8
+RUN apt -y install software-properties-common && add-apt-repository ppa:deadsnakes/ppa -y
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
+
+RUN apt install -y openjdk-8-jre curl python3 python3-pip git
+
+###
 RUN pip install jenkins-webapi
- 
-# Get docker-compose in the agent container
-RUN curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+
+#RUN curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 RUN mkdir -p /home/jenkins
 RUN mkdir -p /var/lib/jenkins
- 
+
 # Start-up script to attach the slave to the master
 ADD slave.py /var/lib/jenkins/slave.py
- 
+
 WORKDIR /home/jenkins
- 
+
 ENV JENKINS_URL "http://jenkins"
 ENV JENKINS_SLAVE_ADDRESS ""
 ENV JENKINS_USER "admin"
@@ -29,5 +35,5 @@ ENV SLAVE_EXECUTORS "1"
 ENV SLAVE_LABELS "docker"
 ENV SLAVE_WORING_DIR ""
 ENV CLEAN_WORKING_DIR "true"
- 
-CMD [ "python", "-u", "/var/lib/jenkins/slave.py" ]
+
+CMD [ "python3", "-u", "/var/lib/jenkins/slave.py" ]
