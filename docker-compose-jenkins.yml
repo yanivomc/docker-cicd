@@ -12,7 +12,8 @@ services:
     jenkins-slave:
         build: ./jenkins/slave
         image: jenkins-jb/slave:1.0
-        container_name: jenkins-slave
+        # Removed container name to support scale out option 
+        #container_name: jenkins-slave 
         restart: always
         environment:
             - 'JENKINS_URL=http://jenkins:8080'

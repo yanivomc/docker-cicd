@@ -34,7 +34,7 @@ def slave_download(target):
     if os.path.isfile(slave_jar):
         os.remove(slave_jar)
 
-    loader = urllib.URLopener()
+    loader = url.URLopener()
     loader.retrieve(os.environ['JENKINS_URL'] + '/jnlpJars/slave.jar', '/var/lib/jenkins/slave.jar')
 
 def slave_run(slave_jar, jnlp_url):
