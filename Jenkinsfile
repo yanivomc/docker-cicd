@@ -1,5 +1,4 @@
 //Manual pipeline
-@Library('DevOps') _
 pipeline {
     agent { label ('packager') }
     environment {
