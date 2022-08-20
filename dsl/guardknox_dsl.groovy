@@ -9,8 +9,9 @@ pipelineJob('github-demo') {
         cpsScm {
             scm {
                 git {
+                    branch('guardbox')
                     remote {
-                        github('jenkinsci/pipeline-examples')
+                        github('https://github.com/yanivomc/docker-cicd.git')
                     }
                 }
             }
