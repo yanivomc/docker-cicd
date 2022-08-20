@@ -1,8 +1,10 @@
 # Starting off with the Jenkins base Image
-FROM jenkins/jenkins:latest
+# Using Specific version to avoid issues (2.364 is up2date to aug 15 2022)
+FROM jenkins/jenkins:2.364
  
 # Installing the plugins we need using the in-built install-plugins.sh script instead of manual install plugins
-RUN /usr/local/bin/install-plugins.sh git matrix-auth workflow-aggregator docker-workflow blueocean credentials-binding docker-build-publish
+COPY ./install-plugins.sh /usr/local/bin/install-plugins.sh
+RUN /usr/local/bin/install-plugins.sh git matrix-auth workflow-aggregator docker-workflow blueocean credentials-binding docker-build-publish job-dsl
  
 # Setting up environment variables for Jenkins admin user
 ENV JENKINS_USER admin

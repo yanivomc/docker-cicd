@@ -1,4 +1,4 @@
-FROM yanivomc/jenkins-slave:baseline
+FROM yanivomc/jenkins-slave:baseline-1.0
 RUN pip install jenkins-webapi
 #RUN curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
 RUN mkdir -p /home/jenkins
