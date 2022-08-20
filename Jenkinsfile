@@ -1,6 +1,6 @@
 //Manual pipeline
 pipeline {
-    agent { label ('packager') }
+    agent { label ('docker') }
     environment {
         BuildResult = "Build - did not run \n"
         UnitTestResult = "Unit Test - did not run \n"
@@ -53,7 +53,7 @@ pipeline {
                     SDK="${X86SDK}"
                     Architecture="x86_64"
                     }
-                    agent { label ('x86') }
+                    agent { label ('docker') }
                     when {
                         anyOf {
                             environment name: 'Choose_SDK', value: 'x86-64'
@@ -179,7 +179,7 @@ pipeline {
                     SDK="${AArch64SDK}"
                     Architecture="aarch64"
                     }
-                    agent { label ('armv8') }
+                    agent { label ('docker') }
                     when {
                         anyOf {
                             environment name: 'Choose_SDK', value: 'AArch64'
