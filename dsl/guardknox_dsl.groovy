@@ -1,10 +1,4 @@
-job('SOA Manual - PipeLine') {
-    steps {
-        shell('SOA DSL CONFIGURED!')
-    }
-}
-
-pipelineJob('github-demo') {
+pipelineJob('SOA Manual - PipeLine') {
     definition {
         cpsScm {
             scm {
