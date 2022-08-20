@@ -5,11 +5,11 @@ pipelineJob('SOA Manual - PipeLine') {
                 git {
                     branch('guardbox')
                     remote {
-                        github('https://github.com/yanivomc/docker-cicd.git')
+                        github('yanivomc/docker-cicd.git')
                     }
                 }
             }
-            scriptPath('declarative-examples/simple-examples/environmentInStage.groovy')
+            scriptPath('./Jenkinsfile')
         }
     }
 }
