@@ -4,7 +4,7 @@ FROM jenkins/jenkins:2.364
  
 # Installing the plugins we need using the in-built install-plugins.sh script instead of manual install plugins
 COPY ./install-plugins.sh /usr/local/bin/install-plugins.sh
-RUN /usr/local/bin/install-plugins.sh git matrix-auth workflow-aggregator docker-workflow blueocean credentials-binding docker-build-publish job-dsl workflow-job workflow-cps
+RUN /usr/local/bin/install-plugins.sh git matrix-auth workflow-aggregator docker-workflow blueocean credentials-binding docker-build-publish job-dsl workflow-job workflow-cps email-ext
  
 # Setting up environment variables for Jenkins admin user
 ENV JENKINS_USER admin
