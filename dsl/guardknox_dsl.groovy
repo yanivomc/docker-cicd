@@ -3,7 +3,7 @@ pipelineJob('SOA Manual1 - PipeLine') {
         cpsScm {
             scm {
                 git {
-                    branch('guardbox1')
+                    branch('guardbox')
                     remote {
                         github('yanivomc/docker-cicd')
                     }
