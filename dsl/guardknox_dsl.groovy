@@ -1,4 +1,4 @@
-pipelineJob('SOA Manual - PipeLine') {
+pipelineJob('SOA Manual1 - PipeLine') {
     definition {
         cpsScm {
             scm {
