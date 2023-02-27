@@ -1,4 +1,5 @@
-FROM node:4.6
+#FROM node:4.6
+FROM node:latest
 WORKDIR /app
 ADD . /app
 RUN echo " this is a test "
