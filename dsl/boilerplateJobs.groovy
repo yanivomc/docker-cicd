@@ -9,7 +9,7 @@ job('u-boot') {
         }
     }
     triggers {
-        pollSCM('H/5 * * * *') // Triggers the build when a change is detected in the repository every 5 minutes
+        scm('H/5 * * * *') // Triggers the build when a change is detected in the repository every 5 minutes
     }
 
     steps {
