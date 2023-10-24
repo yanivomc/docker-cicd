@@ -3,7 +3,6 @@ import com.cloudbees.plugins.credentials.domains.*
 import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
 // Echo the parameters passed from the parameterized seed job
 println("Printing parameters passed from the parameterized seed job:")
-println("Printing all environment variables: ${env}")
 println("GIT_USERNAME: ${params.GIT_USERNAME}")
 println("GIT_PASSWORD: ${params.GIT_PASSWORD}")
 
