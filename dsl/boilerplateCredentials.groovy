@@ -5,6 +5,10 @@ import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
 def username = System.getenv('GIT_USERNAME')
 def password = System.getenv('GIT_PASSWORD')
 println("Printing parameters passed from the parameterized seed job:")
+System.getenv().each { key, value ->
+    println("${key}: ${value}")
+}
+
 println("GIT_USERNAME: ${username}")
 println("GIT_PASSWORD: ${password}")
 
