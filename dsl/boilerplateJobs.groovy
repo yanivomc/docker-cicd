@@ -6,8 +6,6 @@ job('u-boot') {
                 credentials('git-credentials-id') // Replace with your actual Jenkins credentials ID
             }
             branch('linux/u-boot/u-boot')
-            gitConfigName('DSL User')
-            gitConfigEmail('jenkins-dsl@domain.com')
         }
     }
     triggers {
