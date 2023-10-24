@@ -10,7 +10,7 @@ def description = 'GitLab Username and Password'
 
 // Check if credentials already exist
 def existingCreds = null
-CredentialsStore store = Jenkins.instance.getExtensionList('com.cloudbees.plugins.credentials.SystemCredentialsProvider')[0].getStore()
+CredentialsStore store = jenkins.model.Jenkins.instance.getExtensionList('com.cloudbees.plugins.credentials.SystemCredentialsProvider')[0].getStore()
 existingCreds = store?.getCredentials(Domain.global())?.find { it.id == credsId }
 
 if (existingCreds) {
