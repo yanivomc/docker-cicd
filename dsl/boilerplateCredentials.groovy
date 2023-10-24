@@ -2,16 +2,8 @@ import com.cloudbees.plugins.credentials.*
 import com.cloudbees.plugins.credentials.domains.*
 import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
 // Echo the parameters passed from the parameterized seed job
-def username = System.getenv('GIT_USERNAME')
-def password = System.getenv('GIT_PASSWORD')
-println("Printing parameters passed from the parameterized seed job:")
-System.getenv().each { key, value ->
-    println("${key}: ${value}")
-}
-
-println("GIT_USERNAME: ${username}")
-println("GIT_PASSWORD: ${password}")
-
+def username = 'test'
+def password = 'test'
 def credsId = 'git-credentials-id'
 def description = 'GitLab Username and Password'
 
