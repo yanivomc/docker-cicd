@@ -1,6 +1,10 @@
 import com.cloudbees.plugins.credentials.*
 import com.cloudbees.plugins.credentials.domains.*
 import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl
+// Echo the parameters passed from the parameterized seed job
+println("Printing parameters passed from the parameterized seed job:")
+println("GIT_USERNAME: ${params.GIT_USERNAME}")
+println("GIT_PASSWORD: ${params.GIT_PASSWORD}")
 
 def credsId = 'git-credentials-id'
 def description = 'GitLab Username and Password'
@@ -32,25 +36,3 @@ if (existingCreds) {
     store.addCredentials(Domain.global(), newCreds)
 }
 
-
-job('u-boot') {
-    scm {
-        git {
-            remote {
-                url('ssh://git@devop.satixfy.lan:222/sw_host/u-boot.git')
-                credentials('git-credentials-id') // Replace with your actual Jenkins credentials ID
-            }
-            branch('linux/u-boot/u-boot')
-            gitConfigName('DSL User')
-            gitConfigEmail('jenkins-dsl@domain.com')
-        }
-    }
-    triggers {
-    pollSCM('') // Triggers the build when a change is detected in the repository
-    }
-
-    steps {
-        shell('docker build -t satixfy/u-boot .') // Replace with your actual Docker image name
-        shell('docker push satixfy/u-boot') // Replace with your actual Docker image name
-    }
-}
