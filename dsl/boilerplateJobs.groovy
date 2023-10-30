@@ -1,11 +1,18 @@
-job('u-boot') {
+job('buildroot') {
+    // Define job internal variables
+    def gitUrl = 'http://gitlab.satixfy.lan/sw_host/buildroot.git'
+    def gitCredentialsId = 'git-credentials-id' // Replace with your actual Jenkins credentials ID
+    def dockerRepo = 'satixfy' // Replace with your actual Docker Repo name
+    def dockerImageName = "${dockerRepo}/u-boot" // Replace with your actual Docker image name
+    def dockerImageTag = "\${env.BUILD_NUMBER}" // use jenkins build number as tag
+    def branch = 'jenkins_docker'
     scm {
         git {
             remote {
-                url('ssh://git@devop.satixfy.lan:222/sw_host/u-boot.git')
-                credentials('git-credentials-id') // Replace with your actual Jenkins credentials ID
+                url(gitUrl)
+                credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
             }
-            branch('linux/u-boot/u-boot')
+            branch(branch)
         }
     }
     triggers {
@@ -13,7 +20,7 @@ job('u-boot') {
     }
 
     steps {
-        shell('docker build -t satixfy/u-boot .') // Replace with your actual Docker image name
-        shell('docker push satixfy/u-boot') // Replace with your actual Docker image name
+        shell("docker build -t ${dockerImageName}:${dockerImageTag} -f buildroot.Dockerfile .")
+        // shell('docker push satixfy/u-boot') // Ignored for now.
     }
 }
