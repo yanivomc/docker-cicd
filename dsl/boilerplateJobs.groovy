@@ -5,16 +5,14 @@ job('buildroot') {
     def dockerRepo = 'satixfy' // Replace with your actual Docker Repo name
     def dockerImageName = "${dockerRepo}/u-boot" // Replace with your actual Docker image name
     def dockerImageTag = "\${env.BUILD_NUMBER}" // use jenkins build number as tag
-    def branch = 'jenkins_docker'
+    
     scm {
         git {
             remote {
                 url(gitUrl)
                 credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
             }
-            branch {
-                name(branch)
-                }
+            branch('jenkins_docker')
         }
     }
     triggers {
