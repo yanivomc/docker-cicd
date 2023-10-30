@@ -9,10 +9,12 @@ job('buildroot') {
     scm {
         git {
             remote {
-                url(${gitUrl})
-                credentials(${gitCredentialsId}) // Replace with your actual Jenkins credentials ID
+                url(gitUrl)
+                credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
             }
-            branch(${branch})
+            branch {
+                name(branch)
+                }
         }
     }
     triggers {
