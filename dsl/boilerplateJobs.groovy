@@ -3,7 +3,7 @@ job('buildroot') {
     def gitUrl = 'http://gitlab.satixfy.lan/sw_host/buildroot.git'
     def gitCredentialsId = 'git-credentials-id' // Replace with your actual Jenkins credentials ID
     def registryCreds = 'satixfyrepo' // Replace with your actual Jenkins credentials ID
-    def dockerRepo = ' satixfy-repo.devopshift.com' // Replace with your actual Docker Repo name
+    def dockerRepo = 'satixfy-repo.devopshift.com' // Replace with your actual Docker Repo name
     def dockerImageName = "${dockerRepo}/buildroot/buildroot" // Replace with your actual Docker image name
     def dockerImageTag = "\${BUILD_NUMBER}" // use jenkins build number as tag
     def dockerFile = 'buildroot.Dockerfile'
@@ -34,7 +34,7 @@ job('buildroot') {
         }
     }
 }
-```
+
 job('kernel') {
     // Define job internal variables
     def gitUrl = 'http://gitlab.satixfy.lan/sw_host/kernel.git'
