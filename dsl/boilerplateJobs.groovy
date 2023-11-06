@@ -22,10 +22,7 @@ job('buildroot') {
     }
 
     steps {
-        // Your Docker build and push plugin code here
-
-
-        dockerBuildAndPush {
+         dockerBuildAndPush {
             repo(dockerImageName)
             tag(dockerImageTag)
             registryCredentialsId(registryCreds)
