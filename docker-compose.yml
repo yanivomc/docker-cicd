@@ -16,7 +16,7 @@ services:
         #container_name: jenkins-slave 
         restart: always
         environment:
-            - 'JENKINS_URL=http://jenkins:8080'
+            - 'JENKINS_URL=http://jenkins:8080/jenkins/'
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
             - ./volume:/home/jenkins # Avoid mysql volume mount issue
