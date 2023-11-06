@@ -3,8 +3,8 @@ job('buildroot') {
     def gitUrl = 'http://gitlab.satixfy.lan/sw_host/buildroot.git'
     def gitCredentialsId = 'git-credentials-id' // Replace with your actual Jenkins credentials ID
     def registryCreds = 'satixfyrepo' // Replace with your actual Jenkins credentials ID
-    def dockerRepo = 'satixfyrepo' // Replace with your actual Docker Repo name
-    def dockerImageName = "${dockerRepo}/u-boot" // Replace with your actual Docker image name
+    def dockerRepo = ' satixfy-repo.devopshift.com' // Replace with your actual Docker Repo name
+    def dockerImageName = "${dockerRepo}/buildroot/buildroot" // Replace with your actual Docker image name
     def dockerImageTag = "\${BUILD_NUMBER}" // use jenkins build number as tag
     def dockerFile = 'buildroot.Dockerfile'
     
@@ -23,7 +23,7 @@ job('buildroot') {
 
     steps {
         // Your Docker build and push plugin code here
-        shell('docker run -ti  -v "$(pwd)":/src/linux/buildroot/buildroot satixfyrepo/buildroot:cicd-1.0')
+
 
         dockerBuildAndPush {
             repo(dockerImageName)
