@@ -55,7 +55,7 @@ job('kernel') {
     }
 
     steps {
-         dockerBuildAndPush {
+         dockerBuildAndPublish {
             repo(dockerImageName)
             tag(dockerImageTag)
             registryCredentialsId(registryCreds)
