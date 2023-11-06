@@ -2,6 +2,7 @@ job('buildroot') {
     // Define job internal variables
     def gitUrl = 'http://gitlab.satixfy.lan/sw_host/buildroot.git'
     def gitCredentialsId = 'git-credentials-id' // Replace with your actual Jenkins credentials ID
+    def registryCreds = 'satixfyrepo' // Replace with your actual Jenkins credentials ID
     def dockerRepo = 'satixfyrepo' // Replace with your actual Docker Repo name
     def dockerImageName = "${dockerRepo}/u-boot" // Replace with your actual Docker image name
     def dockerImageTag = "\${BUILD_NUMBER}" // use jenkins build number as tag
@@ -21,8 +22,16 @@ job('buildroot') {
     }
 
     steps {
-        shell("docker build -t ${dockerImageName}:${dockerImageTag} -f ${dockerFile} .")
-        // shell('docker push satixfy/u-boot') // Ignored for now.
+        // Your Docker build and push plugin code here
+        shell('docker run -ti  -v "$(pwd)":/src/linux/buildroot/buildroot satixfyrepo/buildroot:cicd-1.0')
+
+        dockerBuildAndPush {
+            repo(dockerImageName)
+            tag(dockerImageTag)
+            registryCredentialsId(registryCreds)
+            dockerfilePath(dockerFile)
+            forcePull(false)
+        }
     }
 }
 ```
@@ -30,6 +39,7 @@ job('kernel') {
     // Define job internal variables
     def gitUrl = 'http://gitlab.satixfy.lan/sw_host/kernel.git'
     def gitCredentialsId = 'git-credentials-id' // Replace with your actual Jenkins credentials ID
+    def registryCreds = 'satixfyrepo' // Replace with your actual Jenkins credentials ID
     def dockerRepo = 'satixfyrepo' // Replace with your actual Docker Repo name
     def dockerImageName = "${dockerRepo}/kernel" // Replace with your actual Docker image name
     def dockerImageTag = "\${BUILD_NUMBER}" // use jenkins build number as tag
@@ -49,7 +59,12 @@ job('kernel') {
     }
 
     steps {
-        shell("docker build -t ${dockerImageName}:${dockerImageTag} -f ${dockerFile} .")
-        // shell('docker push satixfy/u-boot') // Ignored for now.
+         dockerBuildAndPush {
+            repo(dockerImageName)
+            tag(dockerImageTag)
+            registryCredentialsId(registryCreds)
+            dockerfilePath(dockerFile)
+            forcePull(false)
+        }
     }
 }

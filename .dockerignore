@@ -4,4 +4,4 @@
 **/Dockerfile*
 **/.dockerignore*
 **/*.user
-
+**/volume*
