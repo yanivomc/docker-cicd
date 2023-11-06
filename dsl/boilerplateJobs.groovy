@@ -22,12 +22,11 @@ job('buildroot') {
     }
 
     steps {
-         dockerBuildAndPush {
-            repo(dockerImageName)
+            dockerBuildAndPublish {
+            imageName(dockerImageName)
             tag(dockerImageTag)
-            registryCredentialsId(registryCreds)
-            dockerfilePath(dockerFile)
-            forcePull(false)
+            registryCredentials(registryCreds)
+            dockerfile(dockerFile)
         }
     }
 }
