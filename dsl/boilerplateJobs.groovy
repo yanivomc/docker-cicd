@@ -56,7 +56,7 @@ pipelineJob('kernel') {
                         credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
                     }
                     branches('jenkins_docker')
-                    scriptPath('/kernel/kernel.pipeline')
+                    scriptPath('kernel.pipeline')
                 }
             }
         }
