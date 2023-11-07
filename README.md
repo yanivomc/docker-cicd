@@ -5,3 +5,11 @@ docker push satixfy-repo.devopshift.com/u-boot/u-boot-cicd:1.00.0
 
 docker build  -t satixfy-repo.devopshift.com/kernel/kernel-cicd:1.00.0 -f kernel.cicd.Dockerfile .
 docker push satixfy-repo.devopshift.com/kernel/kernel-cicd:1.00.0
+
+
+
+
+artifacts:
+satixfy-repo.devopshift.com/kernel/kernel-artifact
+satixfy-repo.devopshift.com/kernel/u-boot-artifact
+satixfy-repo.devopshift.com/kernel/buildroot-artifact
