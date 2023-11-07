@@ -1,0 +1,60 @@
+pipeline {
+    agent any
+
+    environment {
+        GIT_URL = 'http://gitlab.satixfy.lan/sw_host/buildroot.git'
+        GIT_CREDENTIALS_ID = 'git-credentials-id'
+        REGISTRY_CREDS = 'dockerRepoSatixfy'
+        DOCKER_REPO = 'satixfy-repo.devopshift.com'
+        DOCKER_IMAGE_NAME = "${DOCKER_REPO}/buildroot/buildroot"
+        DOCKER_IMAGE_TAG = "1.0"
+        DOCKER_FILE = 'buildroot.Dockerfile'
+        DOCKER_ARTIFACT_FILE = 'buildroot.artifacts.Dockerfile'
+    }
+
+    stages {
+        stage('Clone repository') {
+            steps {
+                git branch: 'jenkins_docker', credentialsId: GIT_CREDENTIALS_ID, url: GIT_URL
+            }
+        }
+
+        stage('Pull Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                        docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}").pull()
+                    }
+                }
+            }
+        }
+
+        stage('Run Build Container') {
+            steps {
+                script {
+                    docker.withRegistry('', REGISTRY_CREDS) {
+                        def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
+                        buildImage.inside("-v ${WORKSPACE}:/src/linux/buildroot/buildroot") {
+                            // The build process is started by the container's entrypoint
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Build and Publish Artifact Image') {
+            steps {
+                script {
+                    docker.withRegistry('', REGISTRY_CREDS) {
+                        def app = docker.build("${DOCKER_REPO}/buildroot/buildroot-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
+                        app.push()
+                    }
+                }
+            }
+        }
+    }
+
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+}

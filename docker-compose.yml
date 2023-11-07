@@ -9,6 +9,9 @@ services:
             # - '50000:50000'
         networks: 
             - jb
+        links:
+          - "nexus:satixfy-repo.devopshift.com"
+          
     jenkins-slave:
         build: ./jenkins/slave
         image: jenkins-jb/slave:1.0
@@ -24,6 +27,8 @@ services:
         - jb
         depends_on:
             - jenkins
+        links:
+          - "nexus:satixfy-repo.devopshift.com"
     nginx:
       image: nginx:1.25.3-alpine
       restart: unless-stopped
@@ -41,6 +46,8 @@ services:
         - nexus
       networks:
         - jb
+      links:
+          - "nexus:satixfy-repo.devopshift.com"
     
   #   sonarqube:
   #       image: sonarqube
