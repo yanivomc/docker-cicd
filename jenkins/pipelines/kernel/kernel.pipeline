@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     environment {
-        GIT_URL = 'http://gitlab.satixfy.lan/sw_host/u-boot.git'
+        GIT_URL = 'http://gitlab.satixfy.lan/sw_host/kernel.git'
         GIT_CREDENTIALS_ID = 'git-credentials-id'
         REGISTRY_CREDS = 'dockerRepoSatixfy'
         DOCKER_REPO = 'satixfy-repo.devopshift.com'
-        DOCKER_IMAGE_NAME = "${DOCKER_REPO}/u-boot/u-boot"
+        DOCKER_IMAGE_NAME = "${DOCKER_REPO}/kernel/kernel"
         DOCKER_IMAGE_TAG = "1.00.0"
-        DOCKER_FILE = 'u-boot.Dockerfile'
-        DOCKER_ARTIFACT_FILE = 'u-boot.artifacts.Dockerfile'
-        WORKSPACEFOLDER = '/home/vagrant/work/tmp/jenkins/docker-cicd/volume/workspace/u-boot/'
+        DOCKER_FILE = 'kernel.Dockerfile'
+        DOCKER_ARTIFACT_FILE = 'kernel.artifacts.Dockerfile'
+        WORKSPACEFOLDER = '/home/vagrant/work/tmp/jenkins/docker-cicd/volume/workspace/kernel/'
     }
 
     stages {
@@ -35,12 +35,12 @@ pipeline {
                 script {
                     docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
                         def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
-                        // buildImage.inside("-v ${WORKSPACEFOLDER}:/src/linux/u-boot/u-boot") {
-                        //     // /src/linux/u-boot/u-boot 
+                        // buildImage.inside("-v ${WORKSPACEFOLDER}:/src/linux/kernel/kernel") {
+                        //     // /src/linux/kernel/kernel 
                         //     // The build process is started by the container's entrypoint
                         // }
                         // Define the Docker run command with the desired entrypoint or command
-                        def runCommand = "docker run --rm  -v ${WORKSPACEFOLDER}:/src/linux/u-boot/u-boot ${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}"
+                        def runCommand = "docker run --rm  -v ${WORKSPACEFOLDER}:/src/linux/kernel/linux ${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}"
                         // Execute the Docker run command
                         sh(runCommand)
                         
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
-                        def app = docker.build("${DOCKER_REPO}/u-boot/u-boot-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
+                        def app = docker.build("${DOCKER_REPO}/kernel/kernel-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
                         app.push()
                     }
                 }
