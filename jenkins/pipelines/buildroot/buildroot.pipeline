@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
-                        docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").pull()
+                        docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}").pull()
                     }
                 }
             }
@@ -33,8 +33,9 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
-                        def buildImage = docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}")
-                        buildImage.inside("-v ${WORKSPACE}:/src/linux/buildroot/buildroot") {
+                        def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
+                        buildImage.inside("-v $(pwd)/volume/workspace/buildroot/:/src/linux/buildroot/buildroot") {
+                            // /src/linux/buildroot/buildroot 
                             // The build process is started by the container's entrypoint
                         }
                     }
