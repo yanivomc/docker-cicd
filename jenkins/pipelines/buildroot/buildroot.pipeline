@@ -32,7 +32,7 @@ pipeline {
         stage('Run Build Container') {
             steps {
                 script {
-                    docker.withRegistry('', REGISTRY_CREDS) {
+                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
                         def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
                         buildImage.inside("-v ${WORKSPACE}:/src/linux/buildroot/buildroot") {
                             // The build process is started by the container's entrypoint
