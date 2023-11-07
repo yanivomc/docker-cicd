@@ -9,9 +9,6 @@ services:
             # - '50000:50000'
         networks: 
             - jb
-        links:
-          - nginx:satixfy-repo.devopshift.com
-
     jenkins-slave:
         build: ./jenkins/slave
         image: jenkins-jb/slave:1.0
@@ -27,11 +24,11 @@ services:
         - jb
         depends_on:
             - jenkins
-        links:
-          - nginx:satixfy-repo.devopshift.com
+        
     nginx:
       image: nginx:1.25.3-alpine
       restart: unless-stopped
+      hostname: satixfy-repo.devopshift.com
       volumes:
         - ./jenkins/nginx/conf/nginx-cicd.conf:/etc/nginx/conf.d/nginx-cicd.conf
         - ./jenkins/nginx/letsencrypt/archive/satixfy-repo.devopshift.com/:/etc/certificates
@@ -46,8 +43,6 @@ services:
         - nexus
       networks:
         - jb
-      links:
-          - nginx:satixfy-repo.devopshift.com
     
   #   sonarqube:
   #       image: sonarqube
