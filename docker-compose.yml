@@ -56,7 +56,7 @@ services:
           image: sonatype/nexus3
           restart: unless-stopped
           volumes: 
-            - nexus-date:/nexus-data
+            - nexus-data:/nexus-data
           environment:
             - NEXUS_CONTEXT=nexus
           user: root
