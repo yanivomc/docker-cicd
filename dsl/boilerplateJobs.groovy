@@ -35,7 +35,7 @@ pipelineJob('u-boot') {
                         credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
                     }
                     branches('jenkins_docker')
-                    scriptPath('/u-boot/u-boot.pipeline')
+                    scriptPath('u-boot.pipeline')
                 }
             }
         }

@@ -1,3 +1,6 @@
+# Docker build file for Dev environment
+# This will prepare all the required artifacts for the developer per the version specified
+# then the developer will run docker run to copy all artifacts to local machine and run build_all.sh
 ARG KERNEL_VERSION
 ARG U-BOOT_VERSION
 ARG BUILDROOT_VERSION
@@ -8,6 +11,11 @@ FROM satixfy-repo.devopshift.com/kernel/buildroot-artifact$BUILDROOT_VERSION AS 
 
 FROM satixfy-repo.devopshift.com/buildtools/buildtools:1.00.0 AS sw-builder
 RUN apt update && apt-get install -y device-tree-compiler make gcc gcc-multilib g++ mtd-utils rsync
+# Move the below command into entrypoint as it needs to run on DOCKER run and not build
+
+
+
+
 # Mount local dev folder to: /home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/
 WORKDIR /home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW
 # COPY . ./SW/
@@ -34,7 +42,7 @@ ENV SKIP_UBOOT=1
 ENV SKIP_BUILDROOT=1
 ## Unmark when we wish to allow it to build
 
-#RUN source /devtools/satixfy_env.sh && ./build_all.sh linux_bundle sx4000
+
 RUN source /devtools/satixfy_env.sh &&  ./build_all.sh linux_bundle sx4000 ceva_no_opt
 
 
