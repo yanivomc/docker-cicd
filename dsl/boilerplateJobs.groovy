@@ -4,7 +4,6 @@ def gitUrlUboot = 'http://gitlab.satixfy.lan/sw_host/u-boot.git'
 def gitUrlKernel = 'http://gitlab.satixfy.lan/sw_host/linux.git'
 def gitCredentialsId = 'git-credentials-id' // Replace with your actual Jenkins credentials ID
 
-
 pipelineJob('buildroot') {
     definition {
         cpsScm {
@@ -12,9 +11,7 @@ pipelineJob('buildroot') {
                 git {
                     remote {
                         url(gitUrlBuildroot)
-                        credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
-                        
-
+                        credentials(gitCredentialsId)
                     }
                     branches('jenkins_docker')
                     scriptPath('buildroot.pipeline')
@@ -24,13 +21,13 @@ pipelineJob('buildroot') {
                             depth(1)
                             timeout(30)
                         }
-                    
+                    }
                 }
             }
         }
     }
     triggers {
-        scm('H/5 * * * *') // Triggers the build when a change is detected in the repository every 5 minutes
+        scm('H/5 * * * *')
     }
 }
 
@@ -41,7 +38,7 @@ pipelineJob('u-boot') {
                 git {
                     remote {
                         url(gitUrlUboot)
-                        credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
+                        credentials(gitCredentialsId)
                     }
                     branches('jenkins_docker')
                     scriptPath('u-boot.pipeline')
@@ -51,15 +48,15 @@ pipelineJob('u-boot') {
                             depth(1)
                             timeout(30)
                         }
+                    }
                 }
             }
         }
     }
     triggers {
-        scm('H/5 * * * *') // Triggers the build when a change is detected in the repository every 5 minutes
+        scm('H/5 * * * *')
     }
 }
-
 
 pipelineJob('kernel') {
     definition {
@@ -68,7 +65,7 @@ pipelineJob('kernel') {
                 git {
                     remote {
                         url(gitUrlKernel)
-                        credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
+                        credentials(gitCredentialsId)
                     }
                     branches('jenkins_docker')
                     scriptPath('kernel.pipeline')
@@ -78,12 +75,12 @@ pipelineJob('kernel') {
                             depth(1)
                             timeout(30)
                         }
-
+                    }
                 }
             }
         }
     }
     triggers {
-        scm('H/5 * * * *') // Triggers the build when a change is detected in the repository every 5 minutes
+        scm('H/5 * * * *')
     }
 }
