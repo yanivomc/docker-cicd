@@ -40,7 +40,7 @@ pipeline {
                         //     // The build process is started by the container's entrypoint
                         // }
                         // Define the Docker run command with the desired entrypoint or command
-                        def runCommand = "docker run --rm --name my-build-container -v ${WORKSPACEFOLDER}:/src/linux/buildroot/buildroot ${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}"
+                        def runCommand = "docker run --rm  -v ${WORKSPACEFOLDER}:/src/linux/buildroot/buildroot ${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}"
                         def cleanContainer = "docker rm my-build-container"
                         // Execute the Docker run command
                         sh(runCommand)

@@ -13,9 +13,12 @@ pipelineJob('buildroot') {
                     remote {
                         url(gitUrlBuildroot)
                         credentials(gitCredentialsId) // Replace with your actual Jenkins credentials ID
+                        
+
                     }
                     branches('jenkins_docker')
                     scriptPath('buildroot.pipeline')
+                    depth(1)    // Shallow clone                    
                 }
             }
         }
@@ -36,6 +39,7 @@ pipelineJob('u-boot') {
                     }
                     branches('jenkins_docker')
                     scriptPath('u-boot.pipeline')
+                    depth(1)    // Shallow clone                    
                 }
             }
         }
@@ -57,6 +61,8 @@ pipelineJob('kernel') {
                     }
                     branches('jenkins_docker')
                     scriptPath('kernel.pipeline')
+                    depth(1)    // Shallow clone
+
                 }
             }
         }
