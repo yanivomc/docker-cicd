@@ -18,7 +18,9 @@ pipelineJob('buildroot') {
                     }
                     branches('jenkins_docker')
                     scriptPath('buildroot.pipeline')
-                    depth(1)    // Shallow clone                    
+                    extensions {
+                        shallowClone() // This will do a shallow clone with depth 1
+                    }
                 }
             }
         }
@@ -39,7 +41,9 @@ pipelineJob('u-boot') {
                     }
                     branches('jenkins_docker')
                     scriptPath('u-boot.pipeline')
-                    depth(1)    // Shallow clone                    
+                    extensions {
+                        shallowClone() // This will do a shallow clone with depth 1
+                    }
                 }
             }
         }
@@ -61,7 +65,9 @@ pipelineJob('kernel') {
                     }
                     branches('jenkins_docker')
                     scriptPath('kernel.pipeline')
-                    depth(1)    // Shallow clone
+                    extensions {
+                        shallowClone() // This will do a shallow clone with depth 1
+                    }
 
                 }
             }
