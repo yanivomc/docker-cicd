@@ -23,3 +23,15 @@ ARG U-BOOT_VERSION
 ARG BUILDROOT_VERSION
 
 docker build -t sw-builder --build-arg="KERNEL_VERSION=15" --build-arg="U_BOOT_VERSION=8" --build-arg="BUILDROOT_VERSION=11" -f sw.devBuilder.Dockerfile .
+
+
+-----
+VSCODE
+
+mkdir -p ~/.config
+docker run -d  --rm --name code-server -p 0.0.0.0:5005:8080 \
+  -v "$HOME/.config:/home/coder/.config" \
+  -v "$PWD:/home/coder/project" \
+  -u "$(id -u):$(id -g)" \
+  -e "DOCKER_USER=$USER" \
+  codercom/code-server:latest
