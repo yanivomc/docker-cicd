@@ -21,9 +21,8 @@ pipelineJob('buildroot') {
                             shallow(true)
                             depth(1)
                             timeout(30)
-                            noTags(true) 
                         }
-                    } swdevbuilder
+                    }
                 }
             }
         }
@@ -49,9 +48,8 @@ pipelineJob('u-boot') {
                             shallow(true)
                             depth(1)
                             timeout(30)
-                            noTags(true) 
                         }
-                    } swdevbuilder
+                    }
                 }
             }
         }
@@ -77,9 +75,8 @@ pipelineJob('kernel') {
                             shallow(true)
                             depth(1)
                             timeout(30)
-                            noTags(true) 
                         }
-                    } swdevbuilder
+                    }
                 }
             }
         }
@@ -88,6 +85,7 @@ pipelineJob('kernel') {
         scm('H/5 * * * *')
     }
 }
+
 
 pipelineJob('SW_debBuilder') {
     definition {
@@ -105,9 +103,8 @@ pipelineJob('SW_debBuilder') {
                             shallow(true)
                             depth(1)
                             timeout(30)
-                            noTags(true) 
                         }
-                    } swdevbuilder
+                    }
                 }
             }
         }
