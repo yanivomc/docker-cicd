@@ -75,6 +75,7 @@ pipelineJob('kernel') {
                             shallow(true)
                             depth(1)
                             timeout(30)
+                            noTags(true) 
                         }
                     }
                 }
