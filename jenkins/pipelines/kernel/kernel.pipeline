@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_URL = 'http://gitlab.satixfy.lan/sw_host/kernel.git'
+        GIT_URL = 'http://gitlab.satixfy.lan/sw_host/linux.git'
         GIT_CREDENTIALS_ID = 'git-credentials-id'
         REGISTRY_CREDS = 'dockerRepoSatixfy'
         DOCKER_REPO = 'satixfy-repo.devopshift.com'
@@ -16,7 +16,13 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                git branch: 'jenkins_docker', credentialsId: GIT_CREDENTIALS_ID, url: GIT_URL
+                checkout([$class: 'GitSCM', 
+                    branches: [[name: 'jenkins_docker']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'CloneOption', depth: 1, noTags: true, shallow: true, timeout: 120]],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[credentialsId: GIT_CREDENTIALS_ID, url: GIT_URL]]
+                ])
             }
         }
 
@@ -36,14 +42,14 @@ pipeline {
                     docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
                         def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
                         // buildImage.inside("-v ${WORKSPACEFOLDER}:/src/linux/kernel/kernel") {
-                        //     // /src/linux/kernel/kernel 
+                        //     // /src/linux/kernel/kernel
                         //     // The build process is started by the container's entrypoint
                         // }
                         // Define the Docker run command with the desired entrypoint or command
                         def runCommand = "docker run --rm  -v ${WORKSPACEFOLDER}:/src/linux/kernel/linux ${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}"
                         // Execute the Docker run command
                         sh(runCommand)
-                        
+
 
 
 
