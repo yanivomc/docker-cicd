@@ -59,11 +59,13 @@ pipeline {
                 script {
                     docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
                         def app = docker.build("${DOCKER_REPO}/buildroot/buildroot-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
-                        app.push()
+                        app.push("${env.BUILD_NUMBER}") // Pushes the image with the build number tag
+                        app.push("latest") // Also pushes the image with the 'latest' tag
                     }
                 }
             }
         }
+
     }
 
     triggers {
