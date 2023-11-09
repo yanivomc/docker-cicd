@@ -21,6 +21,7 @@ pipelineJob('buildroot') {
                             shallow(true)
                             depth(1)
                             timeout(30)
+                            noTags(true) 
                         }
                     }
                 }
@@ -48,6 +49,7 @@ pipelineJob('u-boot') {
                             shallow(true)
                             depth(1)
                             timeout(30)
+                            noTags(true) 
                         }
                     }
                 }
@@ -104,6 +106,7 @@ pipelineJob('SW_debBuilder') {
                             shallow(true)
                             depth(1)
                             timeout(30)
+                            noTags(true) 
                         }
                     }
                 }
