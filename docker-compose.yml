@@ -7,28 +7,28 @@ services:
         ports:
             - '8080:8080'
             # - '50000:50000'
-        networks: 
+        networks:
             - jb
     jenkins-slave:
         build: ./jenkins/slave
         image: satixfy-repo.devopshift.com/jenkins-slave:1.0
-        # Removed container name to support scale out option 
-        #container_name: jenkins-slave 
+        # Removed container name to support scale out option
+        #container_name: jenkins-slave
         restart: always
         environment:
             - 'JENKINS_URL=http://jenkins:8080/jenkins/'
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
-            - ./volume:/home/jenkins 
-        networks: 
+            - ./volume:/home/jenkins # Avoid mysql volume mount issue
+        networks:
         - jb
         depends_on:
             - jenkins
-        
+
     nginx:
       image: nginx:1.25.3-alpine
       restart: unless-stopped
-      hostname: satixfy-repo.devopshift.com
+      #      hostname: satixfy-repo.devopshift.com
       volumes:
         - ./jenkins/nginx/conf/nginx-cicd.conf:/etc/nginx/conf.d/nginx-cicd.conf
         - ./jenkins/nginx/letsencrypt/archive/satixfy-repo.devopshift.com/:/etc/certificates
@@ -43,7 +43,7 @@ services:
         - nexus
       networks:
         - jb
-    
+
   #   sonarqube:
   #       image: sonarqube
   #       restart: unless-stopped
@@ -55,7 +55,7 @@ services:
     nexus:
           image: sonatype/nexus3
           restart: unless-stopped
-          volumes: 
+          volumes:
             - ./volume/nexus/data:/nexus-data
           environment:
             - NEXUS_CONTEXT=nexus
@@ -64,9 +64,9 @@ services:
           - jb
 
 
-networks: 
+networks:
   jb:
 
 volumes:
   nexus-data:
-  
+
