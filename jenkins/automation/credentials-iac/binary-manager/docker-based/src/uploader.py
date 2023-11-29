@@ -28,22 +28,22 @@ def upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password):
             print(f"Upload failed. Status code: {response.status_code}\nResponse: {response.text}")
 
 # Grab configuration from os environment variables
-file_path = os.environ['FILE_PATH']
+file_path = os.getenv('FILE_PATH', '')
 # ex: 'http://your-nexus-server/repository/your-repo'
-nexus_repo_url = os.environ['NEXUS_REPO_URL']
-nexus_user = os.environ['NEXUS_USER']
-nexus_password = os.environ['NEXUS_PASSWORD']
+nexus_repo_url = os.getenv('NEXUS_REPO_URL', '')
+nexus_user = os.getenv('NEXUS_USER', '')
+nexus_password = os.getenv('NEXUS_PASSWORD', '')
 # Vlidate that all variables are set and not empty strings and let the user know if they are not set correctly
-if not file_path:
+if file_path == '':
     print("FILE_PATH environment variable not set.")
     raise SystemExit(1)
-elif not nexus_repo_url:
+elif  nexus_repo_url == '':
     print("NEXUS_REPO_URL environment variable not set.")
     raise SystemExit(1)
-elif not nexus_user:
+elif  nexus_user == '':
     print("NEXUS_USER environment variable not set.")
     raise SystemExit(1)
-elif not nexus_password:
+elif  nexus_password == '':
     print("NEXUS_PASSWORD environment variable not set.")
     raise SystemExit(1)
 else:

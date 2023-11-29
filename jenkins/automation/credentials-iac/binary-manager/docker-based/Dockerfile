@@ -3,4 +3,4 @@ COPY ./requirements.txt /tmp/
 RUN pip install -r /tmp/requirements.txt
 WORKDIR /app
 COPY /src/* /app/
-ENTRYPOINT ["python3", "main.py"]
+ENTRYPOINT ["python3", "uploader.py"]
