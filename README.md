@@ -1,3 +1,9 @@
+<!-- Testing SW: -->
+time docker run -ti   -v $(pwd):/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  satixfy-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:9
+<!-- Add Build argument to also build -->
+
+
+
 docker build  -t satixfy-repo.devopshift.com/buildroot/buildroot-cicd:1.00.0 -f buildroot.cicd.Dockerfile . 
 docker build  -t satixfy-repo.devopshift.com/u-boot/u-boot-cicd:1.00.0 -f u-boot.cicd.Dockerfile .
 docker push satixfy-repo.devopshift.com/u-boot/u-boot-cicd:1.00.0
