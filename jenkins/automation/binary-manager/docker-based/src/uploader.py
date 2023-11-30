@@ -1,4 +1,4 @@
-# docker run -ti  -v "$(pwd)":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_URL='https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo' --env NEXUS_USER=admin --env NEXUS_PASSWORD=admin satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1
+# docker run --add-host satixfy-repo.devopshift.com:172.18.0.5 --network docker-cicd_jb -ti  -v "$(pwd)":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=admin --env NEXUS_PASSWORD=nuva3232 satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1
 import os
 import requests
 from requests.auth import HTTPBasicAuth
@@ -6,7 +6,7 @@ from requests.auth import HTTPBasicAuth
 def usage():
     print("---------------------------------------------")
     print(f"The following environment variables must be set: FILE_PATH, NEXUS_REPO_PROJECT, NEXUS_USER, NEXUS_PASSWORD")
-    print(f"Optional: NEXUS_BASE_URL (default: https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo)")
+    print(f"Optional: NEXUS_BASE_URL (default: https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo), BUILD_NUMBER as the suffix for the file name in nexus (default: '')")
     print(f"Example: docker run -ti -v \"$(pwd)\":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_PROJECT=u-boot  --env NEXUS_USER=admin --env NEXUS_PASSWORD=adminpass satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1")
     return
 
@@ -24,7 +24,11 @@ def upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password):
     # Open the file in binary mode
     with open(file_path, 'rb') as file_to_upload:
         # Define the URL for the upload
-        upload_url = f"{nexus_repo_url}/{file_path.split('/')[-1]}"
+        # If env BUILD_NUMBER exists, use it as the file name suffix
+        if os.getenv('BUILD_NUMBER', '') != '':
+            upload_url = f"{nexus_repo_url}/{file_path.split('/')[-1].split('.')[0]}-{os.getenv('BUILD_NUMBER', '')}.{file_path.split('/')[-1].split('.')[1]}"
+        else:
+            upload_url = f"{nexus_repo_url}/{file_path.split('/')[-1]}"
 
         # Make the PUT request to upload the file
         print(f"Uploading {file_path} to {upload_url}...")
@@ -51,21 +55,10 @@ if file_path == '' or nexus_base_url == '' or nexus_repo_project == '' or nexus_
     print("ERROR: Environment variables are not set or missing.")
     usage()
     raise SystemExit(1)
-# elif  nexus_base_url == '':
-#     print("NEXUS_BASE_URL environment variable not set.")
-#     usage()
-#     raise SystemExit(1)
-# elif  nexus_repo_project == '':
-#     print("NEXUS_REPO_PROJECT environment variable not set.")
-#     usage()
-#     raise SystemExit(1)
-# elif  nexus_user == '':
-#     print("NEXUS_USER environment variable not set.")
-#     usage()
-#     raise SystemExit(1)
-# elif  nexus_password == '':
-#     print("NEXUS_PASSWORD environment variable not set.")
-#     usage()
-#     raise SystemExit(1)
+
 else:
     upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password)
+
+
+# TEST:
+# upload_to_nexus('/resources/entrypoint.sh', 'https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo', 'admin', 'nuva3232')

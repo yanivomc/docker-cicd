@@ -11,6 +11,8 @@ pipeline {
         DOCKER_FILE = 'buildroot.Dockerfile'
         DOCKER_ARTIFACT_FILE = 'buildroot.artifacts.Dockerfile'
         WORKSPACEFOLDER = '/home/vagrant/work/tmp/jenkins/docker-cicd/volume/workspace/buildroot/'
+        BINARY_UPLOADER_IMAGE = 'satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1'
+        BINARY_ARTIFACT_FILE = '/src/linux/buildroot/buildroot/output/sx4000/images/buildroot-artifact.tar'
     }
 
     stages {
@@ -36,7 +38,7 @@ pipeline {
                     docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
                         def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
                         // buildImage.inside("-v ${WORKSPACEFOLDER}:/src/linux/buildroot/buildroot") {
-                        //     // /src/linux/buildroot/buildroot 
+                        //     // /src/linux/buildroot/buildroot
                         //     // The build process is started by the container's entrypoint
                         // }
                         // Define the Docker run command with the desired entrypoint or command
@@ -44,7 +46,7 @@ pipeline {
                         def cleanContainer = "docker rm my-build-container"
                         // Execute the Docker run command
                         sh(runCommand)
-                        
+
 
 
 
@@ -66,7 +68,19 @@ pipeline {
             }
         }
 
+        stage('Publish Binary Artifacts') {
+            steps {
+                script {
+                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                        def runCommand = "docker run --add-host satixfy-repo.devopshift.com:172.18.0.5 --network docker-cicd_jb  --rm --env FILE_PATH=${BINARY_ARTIFACT_FILE} --env BUILD_NUMBER=${env.BUILD_NUMBER} --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=nuva3232 --env NEXUS_PASSWORD=admin  -v ${WORKSPACEFOLDER}:/resources ${BINARY_UPLOADER_IMAGE}"                        // Execute the Docker run command
+                        sh(runCommand)
+                    }
+                }
+            }
+        }
+
     }
+   
 
     triggers {
         pollSCM('H/5 * * * *')
