@@ -12,7 +12,7 @@ pipeline {
         DOCKER_ARTIFACT_FILE = 'buildroot.artifacts.Dockerfile'
         WORKSPACEFOLDER = '/home/vagrant/work/tmp/jenkins/docker-cicd/volume/workspace/buildroot/'
         BINARY_UPLOADER_IMAGE = 'satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1'
-        BINARY_ARTIFACT_FILE = '/src/linux/buildroot/buildroot/output/sx4000/images/buildroot-artifact.tar'
+        BINARY_ARTIFACT_FILE = '/resources/output/sx4000/images/buildroot-artifact.tar'
     }
 
     stages {
@@ -56,30 +56,29 @@ pipeline {
             }
         }
 
-        stage('Build and Publish Artifact Image') {
+        stage('Parallel artifact build and publish') {
             steps {
                 script {
-                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
-                        def app = docker.build("${DOCKER_REPO}/buildroot/buildroot-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
-                        app.push("${env.BUILD_NUMBER}") // Pushes the image with the build number tag
-                        app.push("latest") // Also pushes the image with the 'latest' tag
-                    }
+                    parallel(
+                        buildAndPublish: {
+                            docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                                def app = docker.build("${DOCKER_REPO}/buildroot/buildroot-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
+                                app.push("${env.BUILD_NUMBER}") // Pushes the image with the build number tag
+                                app.push("latest") // Also pushes the image with the 'latest' tag
+                            }
+                        },
+                        publishBinaryArtifacts: {
+                            docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                                def runCommand = "docker run --add-host satixfy-repo.devopshift.com:172.18.0.5 --network docker-cicd_jb  --rm --env FILE_PATH=${BINARY_ARTIFACT_FILE} --env BUILD_NUMBER=${env.BUILD_NUMBER} --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=admin --env NEXUS_PASSWORD=nuva3232  -v ${WORKSPACEFOLDER}:/resources ${BINARY_UPLOADER_IMAGE}"
+                                sh(runCommand)
+                            }
+                        }
+                    )
                 }
             }
         }
-
-        stage('Publish Binary Artifacts') {
-            steps {
-                script {
-                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
-                        def runCommand = "docker run --add-host satixfy-repo.devopshift.com:172.18.0.5 --network docker-cicd_jb  --rm --env FILE_PATH=${BINARY_ARTIFACT_FILE} --env BUILD_NUMBER=${env.BUILD_NUMBER} --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=nuva3232 --env NEXUS_PASSWORD=admin  -v ${WORKSPACEFOLDER}:/resources ${BINARY_UPLOADER_IMAGE}"                        // Execute the Docker run command
-                        sh(runCommand)
-                    }
-                }
-            }
-        }
-
     }
+
    
 
     triggers {

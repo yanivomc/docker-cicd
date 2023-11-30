@@ -37,8 +37,13 @@ def upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password):
         # Check if the upload was successful
         if response.status_code == 201:
             print("Upload successful.")
+            raise SystemExit(0)
+        if response.status_code == 401:
+            print("Auth problem - please check user / pass.")
+            raise SystemExit(1)
         else:
-            print(f"Upload failed. Status code: {response.status_code}\nResponse: {response.text}")
+            print(f"Upload failed. Status code: {response.status_code}\n Response: {response.text}")
+            raise SystemExit(1)
 
 # Grab configuration from os environment variables
 file_path = os.getenv('FILE_PATH', '')
