@@ -19,7 +19,7 @@ job('NodeJS example') {
 
 job('Eyals Satix example') {
     scm {
-        git('https://github.com/yanivomc/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('https://github.com/yanivomc/docker-cicd-eyal.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL yaniv')
             node / gitConfigEmail('jenkins-dsl@newtech.academy')
         }
