@@ -17,7 +17,7 @@ job('NodeJS example') {
     }
 }
 
-job('Yaniv example') {
+job('Eyals Satix example') {
     scm {
         git('https://github.com/yanivomc/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL yaniv')
