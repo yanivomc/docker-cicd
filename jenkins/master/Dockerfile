@@ -1,6 +1,6 @@
 # Starting off with the Jenkins base Image
 # Using Specific version to avoid issues (2.364 is up2date to aug 15 2022)
-FROM jenkins/jenkins:2.364
+FROM jenkins/jenkins:2.426.1
  
 # Installing the plugins we need using the in-built install-plugins.sh script instead of manual install plugins
 COPY ./install-plugins.sh /usr/local/bin/install-plugins.sh
