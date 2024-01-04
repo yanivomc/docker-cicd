@@ -69,7 +69,7 @@ pipeline {
                         },
                         publishBinaryArtifacts: {
                             docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
-                                def runCommand = "docker run --add-host satixfy-repo.devopshift.com:172.18.0.5 --network docker-cicd_jb  --rm --env FILE_PATH=${BINARY_ARTIFACT_FILE} --env BUILD_NUMBER=${env.BUILD_NUMBER} --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=admin --env NEXUS_PASSWORD=nuva3232  -v ${WORKSPACEFOLDER}:/resources ${BINARY_UPLOADER_IMAGE}"
+                                def runCommand = "docker run --add-host satixfy-repo.devopshift.com:172.18.0.4 --network docker-cicd_jb  --rm --env FILE_PATH=${BINARY_ARTIFACT_FILE} --env BUILD_NUMBER=${env.BUILD_NUMBER} --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=satixfy-repo-raw --env NEXUS_PASSWORD=098123  -v ${WORKSPACEFOLDER}:/resources ${BINARY_UPLOADER_IMAGE}"
                                 sh(runCommand)
                             }
                         }

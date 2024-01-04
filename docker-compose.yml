@@ -62,6 +62,19 @@ services:
           user: root
           networks:
           - jb
+    code-server:
+      image: yanivomc/codeserver
+      restart: unless-stopped
+      volumes:
+        - /home/vagrant/work/:/home/coder/project
+        - ./volume/codeserver/.config:/home/coder/.config
+      environment:
+        - PASSWORD=098123
+        - TZ=Asia/Jerusalem
+      ports:
+        - "5005:8080"
+      networks:
+        - jb
 
 
 networks:
