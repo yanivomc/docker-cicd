@@ -71,6 +71,8 @@ services:
       volumes:
         - /home/vagrant/work/:/home/coder/project
         - ./volume/codeserver/.config:/home/coder/.config
+        # Mount Docker socket
+        - /var/run/docker.sock:/var/run/docker.sock
       environment:
         - PASSWORD=098123
         - TZ=Asia/Jerusalem
