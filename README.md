@@ -1,5 +1,8 @@
 <!-- Testing SW: -->
-time docker run -ti   -v $(pwd):/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  satixfy-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:9
+time docker run -ti   -v $(pwd):/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  satixfy-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:11 build
+<!-- From vscode: -->
+time docker run -ti   -v /home/vagrant/work/t_branch_sw_tree_05_07_23_newer/SW-TEST1:/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  satixfy-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:11 build
+
 <!-- Add Build argument to also build -->
 
 
