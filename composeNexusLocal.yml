@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+
+    nexus:
+          image: sonatype/nexus3
+          restart: unless-stopped
+          ports:
+            - "8081:8081"
+            
+          volumes:
+            - nexus-data:/nexus-data
+          environment:
+            - NEXUS_CONTEXT=nexus
+          user: root
+          networks:
+          - jb
+
+networks:
+  jb:
+    driver: bridge
+
+volumes:
+  nexus-data:
+
