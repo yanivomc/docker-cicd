@@ -89,7 +89,7 @@ def get_latest_artifact(username,password,repo_url):
             assets = response.json().get('items', [])
             
             if not assets:
-                print(f"No assets found in the repository {repo_name} - skipping.")
+                print(f"No assets found in the repository {files} - skipping.")
                 continue
             
 
