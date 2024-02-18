@@ -63,7 +63,7 @@ def get_latest_artifact(username,password,repo_url):
     auth = HTTPBasicAuth(username, password)
     # exract the folder name from the repo_url (http://localhost:8081/nexus/repository/[FOLDERNAME/)
     print(f"Repo URL: {repo_url}")
-    repo_name = repo_url.split('/')[-3]
+    repo_name = repo_url.split('/')[-1]
     print(f"Repo name: {repo_name}")
     repo_url = repo_url.split('/repository')[0]
     print(f"Repo name: {repo_url}")
@@ -133,7 +133,8 @@ def main():
             print("Failed to fetch latest artifact. Exiting...")
             return
     for artifact in artifacts:
-        artifact_url = f"{repo_url}{artifact}"
+        artifact_url = f"{repo_url}/{artifact}"
+        print(f"Artifact URL: {artifact_url}")
         local_filename = artifact.split('/')[-1]
         print(f"Downloading {artifact_url} to {storage_dir}...")
         if download_file(artifact_url, local_filename, auth, storage_dir):
