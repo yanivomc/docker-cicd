@@ -77,11 +77,11 @@ def get_latest_artifact(username,password,repo_url):
         # Adjust parameters as needed, for example, to filter by format or name
             print(f"Searching for latest assets in the repository {files}...")
             params = {
-                'repository': files,
+                'repository': repo_name,
                 'name': '*latest*',  # Filter by files ending with .latest
                 'group': files,  # Assuming you want to filter by group. Adjust as necessary.
             }
-            print(f"Params : {params}")
+            print(f"Params: {params}")
             response = requests.get(search_url, auth=auth, params=params)
             response.raise_for_status()
             
