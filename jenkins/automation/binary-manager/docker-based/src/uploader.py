@@ -27,17 +27,29 @@ def upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password):
         # If env BUILD_NUMBER exists, use it as the file name suffix
         if os.getenv('BUILD_NUMBER', '') != '':
             upload_url = f"{nexus_repo_url}/{file_path.split('/')[-1].split('.')[0]}-{os.getenv('BUILD_NUMBER', '')}.{file_path.split('/')[-1].split('.')[1]}"
+            upload_url_latest = f"{nexus_repo_url}/{file_path.split('/')[-1].split('.')[0]}-latest.{file_path.split('/')[-1].split('.')[1]}"
         else:
             upload_url = f"{nexus_repo_url}/{file_path.split('/')[-1]}"
 
         # Make the PUT request to upload the file
         print(f"Uploading {file_path} to {upload_url}...")
         response = requests.put(upload_url, data=file_to_upload, auth=HTTPBasicAuth(nexus_user, nexus_password))
+        response_latest = requests.put(upload_url_latest, data=file_to_upload, auth=HTTPBasicAuth(nexus_user, nexus_password))
 
         # Check if the upload was successful
         if response.status_code == 201:
             print("Upload successful.")
             raise SystemExit(0)
+        # Overwrite the file if it already exists
+        elif response_latest.status_code == 400:
+            print("File already exists. Overwriting...")
+            response = requests.put(upload_url_latest, data=file_to_upload, auth=HTTPBasicAuth(nexus_user, nexus_password))
+            if response.status_code == 201:
+                print("Upload successful.")
+                raise SystemExit(0)
+            else:
+                print(f"Upload failed. Status code: {response.status_code}\n Response: {response.text}")
+                raise SystemExit(1)
         if response.status_code == 401:
             print("Auth problem - please check user / pass.")
             raise SystemExit(1)

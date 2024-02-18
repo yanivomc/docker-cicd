@@ -62,8 +62,9 @@ def get_latest_artifact(username,password,repo_url):
     auth = HTTPBasicAuth(username, password)
     # exract the folder name from the repo_url (http://localhost:8081/nexus/repository/[FOLDERNAME/)
     repo_name = repo_url.split('/')[-2]
+    print(f"Repo name: {repo_name}")
     repo_url = repo_url.split('/repository')[0]
-    
+    print(f"Repo name: {repo_url}")
     
 
 
@@ -75,7 +76,7 @@ def get_latest_artifact(username,password,repo_url):
         # Adjust parameters as needed, for example, to filter by format or name
             params = {
                 'repository': repo_name,
-                'name': '*.latest',  # Filter by files ending with .latest
+                'name': '*latest*',  # Filter by files ending with .latest
                 'group': files,  # Assuming you want to filter by group. Adjust as necessary.
             }
             response = requests.get(search_url, auth=auth, params=params)
