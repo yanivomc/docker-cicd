@@ -13,6 +13,7 @@ SWNEXUSFOLDER = os.getenv('SWNEXUSFOLDER', None)
 KERNELNEXUSFOLDER= os.getenv('KERNELNEXUSFOLDER', None)
 UBOOTNEXUSFOLDER= os.getenv('UBOOTNEXUSFOLDER', None)
 DEFAULTNEXUSURI= os.getenv('DEFAULTNEXUSURI', None)
+BUILDEROOTNEXUSFOLDER= os.getenv('BUILDEROOTNEXUSFOLDER', None)
 
 
 
@@ -56,7 +57,7 @@ def validate_login(auth,repo_url=DEFAULTNEXUSURI):
 
 # Function to get latest added artifact from nexus repository
 def get_latest_artifact(username,password,repo_url):
-    project_names= [SWNEXUSFOLDER,KERNELNEXUSFOLDER,UBOOTNEXUSFOLDER]
+    project_names= [SWNEXUSFOLDER,KERNELNEXUSFOLDER,UBOOTNEXUSFOLDER,BUILDEROOTNEXUSFOLDER]
     fileList= []
     # Authentication for Nexus Repository
     auth = HTTPBasicAuth(username, password)
@@ -74,6 +75,7 @@ def get_latest_artifact(username,password,repo_url):
     try:
         for files in project_names:
         # Adjust parameters as needed, for example, to filter by format or name
+            print(f"Searching for latest assets in the repository {repo_name}...")
             params = {
                 'repository': repo_name,
                 'name': '*latest*',  # Filter by files ending with .latest
