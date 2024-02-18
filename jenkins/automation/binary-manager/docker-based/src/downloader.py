@@ -62,7 +62,8 @@ def get_latest_artifact(username,password,repo_url):
     # Authentication for Nexus Repository
     auth = HTTPBasicAuth(username, password)
     # exract the folder name from the repo_url (http://localhost:8081/nexus/repository/[FOLDERNAME/)
-    repo_name = repo_url.split('/')[-2]
+    print(f"Repo URL: {repo_url}")
+    repo_name = repo_url.split('/')[-3]
     print(f"Repo name: {repo_name}")
     repo_url = repo_url.split('/repository')[0]
     print(f"Repo name: {repo_url}")
