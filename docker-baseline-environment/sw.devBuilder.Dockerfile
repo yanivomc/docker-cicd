@@ -4,16 +4,16 @@
 
 #To run this on local env - # Mount local dev folder to: /home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW and run 
 #PWD is the local folder of your SW project (e.g. /home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW)
-# docker run -it --rm -v $(pwd):/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW satixfy-repo.devopshift.com/sw/dev:latest
+# docker run -it --rm -v $(pwd):/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW eldan-repo.devopshift.com/sw/dev:latest
 ARG KERNEL_VERSION=latest
 ARG U_BOOT_VERSION=latest
 ARG BUILDROOT_VERSION=latest
-FROM satixfy-repo.devopshift.com/kernel/kernel-artifact:$KERNEL_VERSION AS kernel-builder
-FROM satixfy-repo.devopshift.com/u-boot/u-boot-artifact:$U_BOOT_VERSION AS u-boot-builder
-FROM satixfy-repo.devopshift.com/buildroot/buildroot-artifact:$BUILDROOT_VERSION AS root-builder
+FROM eldan-repo.devopshift.com/kernel/kernel-artifact:$KERNEL_VERSION AS kernel-builder
+FROM eldan-repo.devopshift.com/u-boot/u-boot-artifact:$U_BOOT_VERSION AS u-boot-builder
+FROM eldan-repo.devopshift.com/buildroot/buildroot-artifact:$BUILDROOT_VERSION AS root-builder
 
 
-FROM satixfy-repo.devopshift.com/buildtools/buildtools:1.00.0 AS sw-builder
+FROM eldan-repo.devopshift.com/buildtools/buildtools:1.00.0 AS sw-builder
 RUN apt update && apt-get install -y device-tree-compiler make gcc gcc-multilib g++ mtd-utils rsync
 
 WORKDIR /SW

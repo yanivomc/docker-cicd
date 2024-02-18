@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        GIT_URL = 'http://gitlab.satixfy.lan/sw_host/linux.git'
+        GIT_URL = 'http://gitlab.eldan.lan/sw_host/linux.git'
         GIT_CREDENTIALS_ID = 'git-credentials-id'
-        REGISTRY_CREDS = 'dockerRepoSatixfy'
-        DOCKER_REPO = 'satixfy-repo.devopshift.com'
+        REGISTRY_CREDS = 'dockerRepoeldan'
+        DOCKER_REPO = 'eldan-repo.devopshift.com'
         DOCKER_IMAGE_NAME = "${DOCKER_REPO}/kernel/kernel"
         DOCKER_IMAGE_TAG = "1.00.0"
         DOCKER_FILE = 'kernel.Dockerfile'
@@ -29,7 +29,7 @@ pipeline {
         stage('Pull Docker Image') {
             steps {
                 script {
-                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                    docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
                         docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}").pull()
                     }
                 }
@@ -39,7 +39,7 @@ pipeline {
         stage('Run Build Container') {
             steps {
                 script {
-                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                    docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
                         def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
                         // buildImage.inside("-v ${WORKSPACEFOLDER}:/src/linux/kernel/kernel") {
                         //     // /src/linux/kernel/kernel
@@ -62,7 +62,7 @@ pipeline {
         stage('Build and Publish Artifact Image') {
             steps {
                 script {
-                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                    docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
                         def app = docker.build("${DOCKER_REPO}/kernel/kernel-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
                         app.push("${env.BUILD_NUMBER}") // Pushes the image with the build number tag
                         app.push("latest") // Also pushes the image with the 'latest' tag

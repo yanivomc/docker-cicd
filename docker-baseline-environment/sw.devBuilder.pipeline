@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        GIT_URL = 'http://gitlab.satixfy.lan/softdev/docker-baseline-environment.git'
+        GIT_URL = 'http://gitlab.eldan.lan/softdev/docker-baseline-environment.git'
         GIT_CREDENTIALS_ID = 'git-credentials-id'
-        REGISTRY_CREDS = 'dockerRepoSatixfy'
-        DOCKER_REPO = 'satixfy-repo.devopshift.com'
+        REGISTRY_CREDS = 'dockerRepoeldan'
+        DOCKER_REPO = 'eldan-repo.devopshift.com'
         DOCKER_ARTIFACT_FILE = 'sw.devBuilder.Dockerfile'
     }
 
@@ -26,7 +26,7 @@ pipeline {
         stage('Build and Publish Artifact Image') {
             steps {
                 script {
-                    docker.withRegistry('https://satixfy-repo.devopshift.com', REGISTRY_CREDS) {
+                    docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
                         def app = docker.build("${DOCKER_REPO}/swdevbuilder/swdevbuilder-artifact:${env.BUILD_NUMBER}", "-f ${DOCKER_ARTIFACT_FILE} .")
                         app.push("${env.BUILD_NUMBER}") // Pushes the image with the build number tag
                         app.push("latest") // Also pushes the image with the 'latest' tag

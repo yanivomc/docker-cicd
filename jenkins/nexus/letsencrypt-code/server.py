@@ -3,7 +3,7 @@ import subprocess
 import time
 
 # Configuration variables
-domain = "satixfy-repo.devopshift.com"
+domain = "eldan-repo.devopshift.com"
 email = "yanivomc@gmail.com.com"
 certbot_path = "/usr/bin/certbot"  # Adjust if Certbot is located elsewhere
 nginx_path = "/usr/sbin/nginx"  # Adjust if NGINX is located elsewhere

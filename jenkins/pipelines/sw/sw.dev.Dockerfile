@@ -4,12 +4,12 @@
 ARG KERNEL_VERSION
 ARG U_BOOT_VERSION
 ARG BUILDROOT_VERSION
-FROM satixfy-repo.devopshift.com/kernel/kernel-artifact:$KERNEL_VERSION AS kernel-builder
-FROM satixfy-repo.devopshift.com/u-boot/u-boot-artifact:$U_BOOT_VERSION AS u-boot-builder
-FROM satixfy-repo.devopshift.com/buildroot/buildroot-artifact:$BUILDROOT_VERSION AS root-builder
+FROM eldan-repo.devopshift.com/kernel/kernel-artifact:$KERNEL_VERSION AS kernel-builder
+FROM eldan-repo.devopshift.com/u-boot/u-boot-artifact:$U_BOOT_VERSION AS u-boot-builder
+FROM eldan-repo.devopshift.com/buildroot/buildroot-artifact:$BUILDROOT_VERSION AS root-builder
 
 
-FROM satixfy-repo.devopshift.com/buildtools/buildtools:1.00.0 AS sw-builder
+FROM eldan-repo.devopshift.com/buildtools/buildtools:1.00.0 AS sw-builder
 RUN apt update && apt-get install -y device-tree-compiler make gcc gcc-multilib g++ mtd-utils rsync
 # Move the below command into entrypoint as it needs to run on DOCKER run and not build
 
@@ -19,7 +19,7 @@ RUN apt update && apt-get install -y device-tree-compiler make gcc gcc-multilib 
 # Mount local dev folder to: /home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW
 WORKDIR /home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW
 # COPY . ./SW/
-RUN rm -rf ./SW/Tools/satixfy_utils/imgtxt2enum.d
+RUN rm -rf ./SW/Tools/eldan_utils/imgtxt2enum.d
 #WORKDIR /src/SW
 # Copy all required artifacts to project folder (this will expose on local dev machine)
 WORKDIR /home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW/bin/sx4000/images_tmp
@@ -43,7 +43,7 @@ ENV SKIP_BUILDROOT=1
 ## Unmark when we wish to allow it to build
 
 
-#RUN source /devtools/satixfy_env.sh &&  ./build_all.sh linux_bundle sx4000 ceva_no_opt
+#RUN source /devtools/eldan_env.sh &&  ./build_all.sh linux_bundle sx4000 ceva_no_opt
 
 
 WORKDIR /devtools/

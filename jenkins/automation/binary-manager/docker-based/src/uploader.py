@@ -1,4 +1,4 @@
-# docker run --add-host satixfy-repo.devopshift.com:172.18.0.5 --network docker-cicd_jb -ti  -v "$(pwd)":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=admin --env NEXUS_PASSWORD=nuva3232 satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1
+# docker run --add-host eldan-repo.devopshift.com:172.18.0.5 --network docker-cicd_jb -ti  -v "$(pwd)":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=admin --env NEXUS_PASSWORD=nuva3232 eldan-repo.devopshift.com/binary_manager/binary_manager:1.00.1
 import os
 import requests
 from requests.auth import HTTPBasicAuth
@@ -6,8 +6,8 @@ from requests.auth import HTTPBasicAuth
 def usage():
     print("---------------------------------------------")
     print(f"The following environment variables must be set: FILE_PATH, NEXUS_REPO_PROJECT, NEXUS_USER, NEXUS_PASSWORD")
-    print(f"Optional: NEXUS_BASE_URL (default: https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo), BUILD_NUMBER as the suffix for the file name in nexus (default: '')")
-    print(f"Example: docker run -ti -v \"$(pwd)\":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_PROJECT=u-boot  --env NEXUS_USER=admin --env NEXUS_PASSWORD=adminpass satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1")
+    print(f"Optional: NEXUS_BASE_URL (default: https://eldan-repo.devopshift.com/nexus/repository/eldan-raw-repo), BUILD_NUMBER as the suffix for the file name in nexus (default: '')")
+    print(f"Example: docker run -ti -v \"$(pwd)\":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_PROJECT=u-boot  --env NEXUS_USER=admin --env NEXUS_PASSWORD=adminpass eldan-repo.devopshift.com/binary_manager/binary_manager:1.00.1")
     return
 
 def upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password):
@@ -60,7 +60,7 @@ def upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password):
 # Grab configuration from os environment variables
 file_path = os.getenv('FILE_PATH', '')
 # ex: 'http://your-nexus-server/repository/your-repo'
-nexus_base_url = os.getenv('NEXUS_BASE_URL', 'https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo')
+nexus_base_url = os.getenv('NEXUS_BASE_URL', 'https://eldan-repo.devopshift.com/nexus/repository/eldan-raw-repo')
 nexus_repo_project = os.getenv('NEXUS_REPO_PROJECT', '')
 nexus_repo_url = f"{nexus_base_url}/{nexus_repo_project}"
 # DEBUG: 
@@ -78,4 +78,4 @@ else:
 
 
 # TEST:
-# upload_to_nexus('/resources/entrypoint.sh', 'https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo', 'admin', 'nuva3232')
+# upload_to_nexus('/resources/entrypoint.sh', 'https://eldan-repo.devopshift.com/nexus/repository/eldan-raw-repo', 'admin', 'nuva3232')

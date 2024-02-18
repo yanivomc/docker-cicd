@@ -2,7 +2,7 @@ version: '3.1'
 services:
     jenkins:
         build: ./jenkins/master
-        image: satixfy-repo.devopshift.com/jenkins-master:1.0
+        image: eldan-repo.devopshift.com/jenkins-master:1.0
         container_name: jenkins
         ports:
             - '8080:8080'
@@ -11,7 +11,7 @@ services:
             - jb
     jenkins-slave:
         build: ./jenkins/slave
-        image: satixfy-repo.devopshift.com/jenkins-slave:1.0
+        image: eldan-repo.devopshift.com/jenkins-slave:1.0
         # Removed container name to support scale out option
         #container_name: jenkins-slave
         restart: always
@@ -28,10 +28,10 @@ services:
     nginx:
       image: nginx:1.25.3-alpine
       restart: unless-stopped
-      hostname: satixfy-repo.devopshift.com
+      hostname: eldan-repo.devopshift.com
       volumes:
         - ./jenkins/nginx/conf/nginx-cicd.conf:/etc/nginx/conf.d/nginx-cicd.conf
-        - ./jenkins/nginx/letsencrypt/archive/satixfy-repo.devopshift.com/:/etc/certificates
+        - ./jenkins/nginx/letsencrypt/archive/eldan-repo.devopshift.com/:/etc/certificates
       ports:
         - "80:80"
         - "443:443"

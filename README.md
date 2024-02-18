@@ -1,27 +1,27 @@
 <!-- Testing SW: -->
-time docker run -ti   -v $(pwd):/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  satixfy-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:11 build
+time docker run -ti   -v $(pwd):/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  eldan-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:11 build
 <!-- From vscode: -->
-time docker run -ti   -v /home/vagrant/work/t_branch_sw_tree_05_07_23_newer/SW-TEST1:/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  satixfy-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:11 build
+time docker run -ti   -v /home/vagrant/work/t_branch_sw_tree_05_07_23_newer/SW-TEST1:/home/vagrant/proj/t_branch_sw_tree_05_07_23_release_20_6/SW  eldan-repo.devopshift.com/swdevbuilder/swdevbuilder-artifact:11 build
 
 <!-- Add Build argument to also build -->
 
 
 
-docker build  -t satixfy-repo.devopshift.com/buildroot/buildroot-cicd:1.00.0 -f buildroot.cicd.Dockerfile . 
-docker build  -t satixfy-repo.devopshift.com/u-boot/u-boot-cicd:1.00.0 -f u-boot.cicd.Dockerfile .
-docker push satixfy-repo.devopshift.com/u-boot/u-boot-cicd:1.00.0
+docker build  -t eldan-repo.devopshift.com/buildroot/buildroot-cicd:1.00.0 -f buildroot.cicd.Dockerfile . 
+docker build  -t eldan-repo.devopshift.com/u-boot/u-boot-cicd:1.00.0 -f u-boot.cicd.Dockerfile .
+docker push eldan-repo.devopshift.com/u-boot/u-boot-cicd:1.00.0
 
 
-docker build  -t satixfy-repo.devopshift.com/kernel/kernel-cicd:1.00.0 -f kernel.cicd.Dockerfile .
-docker push satixfy-repo.devopshift.com/kernel/kernel-cicd:1.00.0
+docker build  -t eldan-repo.devopshift.com/kernel/kernel-cicd:1.00.0 -f kernel.cicd.Dockerfile .
+docker push eldan-repo.devopshift.com/kernel/kernel-cicd:1.00.0
 
 
 
 
 artifacts:
-satixfy-repo.devopshift.com/kernel/kernel-artifact
-satixfy-repo.devopshift.com/kernel/u-boot-artifact
-satixfy-repo.devopshift.com/kernel/buildroot-artifact
+eldan-repo.devopshift.com/kernel/kernel-artifact
+eldan-repo.devopshift.com/kernel/u-boot-artifact
+eldan-repo.devopshift.com/kernel/buildroot-artifact
 
 
 
