@@ -37,7 +37,7 @@ services:
         - "443:443"
         - "5001:5000"
       command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-      # entrypoint: "sleep 60000"
+      # entrypoint: sleep 6000
       depends_on:
         - jenkins
         - nexus
@@ -59,6 +59,8 @@ services:
             - ./volume-nexus/data:/nexus-data
           environment:
             - NEXUS_CONTEXT=nexus
+          ports:
+            - 8085:8081
           user: root
           networks:
           - jb
@@ -69,7 +71,7 @@ services:
       image: yanivomc/codeserver
       restart: unless-stopped
       volumes:
-        - /home/vagrant/work/:/home/coder/project
+        # - /home/vagrant/work/:/home/coder/project
         - ./volume/codeserver/.config:/home/coder/.config
         # Mount Docker socket
         - /var/run/docker.sock:/var/run/docker.sock

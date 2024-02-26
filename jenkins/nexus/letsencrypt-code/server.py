@@ -1,11 +1,12 @@
 import subprocess
 # import schedule
 import time
+# import schedule
 
 # Configuration variables
 domain = "eldan-repo.devopshift.com"
 email = "yanivomc@gmail.com.com"
-certbot_path = "/usr/bin/certbot"  # Adjust if Certbot is located elsewhere
+certbot_path = "/usr/local/bin/certbot"  # Adjust if Certbot is located elsewhere
 nginx_path = "/usr/sbin/nginx"  # Adjust if NGINX is located elsewhere
 
 def run_certbot():
@@ -18,7 +19,7 @@ def run_certbot():
     except FileNotFoundError:
         # If the certificate file does not exist, create a new one
         certbot_command = [
-            "sudo", certbot_path, "certonly", "--nginx",
+            "sudo", certbot_path, "certonly", 
             "--non-interactive", "--agree-tos",
             "--email", email, "-d", domain
         ]

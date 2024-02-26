@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mockRepo", "mockRepo", "{52992DD3-2510-4616-B628-28ABEB87FF7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core-eldan", "core-eldan", "{97175EB1-4EAF-4E7A-8467-F84D448679F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{632B8713-134A-4939-9BC8-2E21818AF43C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld", "mockRepo\core-eldan\src\ImageProcessing\HelloWorld.csproj", "{E24925C3-FFF9-40C1-A20E-FF425A9E3FDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E24925C3-FFF9-40C1-A20E-FF425A9E3FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E24925C3-FFF9-40C1-A20E-FF425A9E3FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E24925C3-FFF9-40C1-A20E-FF425A9E3FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E24925C3-FFF9-40C1-A20E-FF425A9E3FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97175EB1-4EAF-4E7A-8467-F84D448679F6} = {52992DD3-2510-4616-B628-28ABEB87FF7D}
+		{632B8713-134A-4939-9BC8-2E21818AF43C} = {97175EB1-4EAF-4E7A-8467-F84D448679F6}
+		{E24925C3-FFF9-40C1-A20E-FF425A9E3FDA} = {632B8713-134A-4939-9BC8-2E21818AF43C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB980950-4E6D-498B-A018-D41A40A3AA0F}
+	EndGlobalSection
+EndGlobal

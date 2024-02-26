@@ -1,0 +1,32 @@
+# Use the official Microsoft .NET SDK image to build the application
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+WORKDIR /app
+
+# Copy csproj and restore any dependencies
+COPY *.csproj ./
+RUN dotnet restore
+
+# # Copy the rest of the files and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# # Generate nuget package
+# # NOTE! Assuming you have a .nuspec file in OUR project directory
+# # Replace 'YourPackageName' with your actual package name and '1.0.0' with your package version
+RUN dotnet pack /p:PackageVersion=1.2.10 -o nugets
+
+
+
+
+# # Upload artifacts to nexus
+ARG NEXUS_API_KEY
+RUN echo "NEXUS_API_KEY=$NEXUS_API_KEY"
+RUN dotnet nuget push "nugets/*.nupkg" --api-key $NEXUS_API_KEY --source "http://docker-cicd-nexus-1:8081/nexus/repository/nuget-hosted/"
+
+
+# Generate the runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+ENV PROJECTNAME=imageProcessing
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "ImageProcessing.dll"]
