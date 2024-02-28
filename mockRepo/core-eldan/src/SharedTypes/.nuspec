@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SharedTypes</id>
+    <version>1.0.0</version>
+    <authors>Yaniv cohen</authors>
+    <owners>Eldan</owners>
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SharedTypes DLL</description>
+    <releaseNotes>First updates.</releaseNotes>
+    <tags>tag1 tag2</tags>
+  </metadata>
+  <files>
+    <file src="app\out\SharedTypes.dll" target="lib\netstandard2.0\" />
+    <!-- Add more <file> elements here for additional files you want to include in the package -->
+  </files>
+</package>

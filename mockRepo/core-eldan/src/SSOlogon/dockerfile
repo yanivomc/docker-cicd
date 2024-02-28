@@ -10,6 +10,19 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o out
 
+# # Generate nuget package
+# # NOTE! Assuming you have a .nuspec file in OUR project directory
+# # Replace 'YourPackageName' with your actual package name and '1.0.0' with your package version
+RUN dotnet pack /p:PackageVersion=1.2.10 -o nugets
+
+
+
+
+# # Upload artifacts to nexus
+ARG NEXUS_API_KEY
+RUN echo "NEXUS_API_KEY=$NEXUS_API_KEY"
+RUN dotnet nuget push "nugets/*.nupkg" --api-key $NEXUS_API_KEY --source "https://eldan-repo.devopshift.com/nexus/repository/nuget-hosted/"
+
 # Generate the runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 ENV PROJECTNAME=SSOlogon
