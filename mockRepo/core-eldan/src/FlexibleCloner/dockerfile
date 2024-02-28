@@ -16,7 +16,7 @@ RUN dotnet publish -c Release -o out
 # # Generate nuget package
 # # NOTE! Assuming you have a .nuspec file in OUR project directory
 # # Replace 'YourPackageName' with your actual package name and '1.0.0' with your package version
-RUN dotnet pack /p:PackageVersion=1.2.10 -o nugets
+RUN dotnet pack /p:PackageVersion=1.2.20 -o nugets
 
 
 
