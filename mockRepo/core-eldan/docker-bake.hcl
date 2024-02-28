@@ -3,6 +3,8 @@ group "default" {
   targets = ["ImageProcessing", "SecurityBase","ServicesSchedulerLib","SharedTypes","TypeExtensions","SSOlogon"]
 }
 
+
+
 variable "NEXUS_API_KEY" {
   default = "20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e"
 }
@@ -29,7 +31,8 @@ target "SecurityBase" {
   // platforms = ["linux/amd64", "linux/arm64"]
   tags = ["eldan/security-base:latest"]
   args = {
-    NEXUS_API_KEY = "${NEXUS_API_KEY}"
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
   }
 }
 
@@ -38,8 +41,10 @@ target "ServicesSchedulerLib" {
   dockerfile = "dockerfile"
   tags = ["eldan/services-scheduler-lib:latest"]
   args = {
-    NEXUS_API_KEY = "${NEXUS_API_KEY}"
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
   }
+
 }
 
 target "SharedTypes" {
@@ -47,7 +52,8 @@ target "SharedTypes" {
   dockerfile = "dockerfile"
   tags = ["eldan/shared-types:latest"]
   args = {
-    NEXUS_API_KEY = "${NEXUS_API_KEY}"
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
   }
   
 }
@@ -57,7 +63,8 @@ target "TypeExtensions" {
   dockerfile = "dockerfile"
   tags = ["eldan/type-extensions:latest"]
   args = {
-    NEXUS_API_KEY = "${NEXUS_API_KEY}"
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
   }
 }
 
@@ -66,6 +73,7 @@ target "SSOlogon" {
   dockerfile = "dockerfile"
   tags= ["eldan/sso-logon:latest"]
   args = {
-    NEXUS_API_KEY = "${NEXUS_API_KEY}"
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
   }
 }
