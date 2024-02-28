@@ -11,7 +11,7 @@ pipeline {
         DOCKER_IMAGE_TAG = "1.00.0"
         DOCKER_FILE = 'buildroot.Dockerfile'
         DOCKER_ARTIFACT_FILE = 'buildroot.artifacts.Dockerfile'
-        WORKSPACEFOLDER = '/home/vagrant/work/tmp/jenkins/docker-cicd/volume/workspace/buildroot/'
+        WORKSPACEFOLDER = './mockRepo/core-eldan/'
         BINARY_UPLOADER_IMAGE = 'eldan-repo.devopshift.com/binary_manager/binary_manager:1.00.1'
         BINARY_ARTIFACT_FILE = '/resources/output/sx4000/images/buildroot-artifact.tar'
     }
@@ -63,7 +63,7 @@ pipeline {
                     parallel(
                         eldanCore: {
                             // Run docker bake command
-                            def runCommand = "docker buildx bake -f  docker-bake.hcl --set BUILD_NUMBER=${env.BUILD_NUMBER}"
+                            def runCommand = "cd ${WORKSPACEFOLDER} && docker buildx bake -f  docker-bake.hcl --set BUILD_NUMBER=${env.BUILD_NUMBER}"
                             sh(runCommand)
                             
                             }
