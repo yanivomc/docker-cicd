@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        GIT_URL = 'http://gitlab.eldan.lan/sw_host/buildroot.git'
+        GIT_URL = 'https://github.com/yanivomc/docker-cicd.git'
+        GIT_BRANCH = 'eldan'
         GIT_CREDENTIALS_ID = 'git-credentials-id'
         REGISTRY_CREDS = 'dockerRepoeldan'
         DOCKER_REPO = 'eldan-repo.devopshift.com'
