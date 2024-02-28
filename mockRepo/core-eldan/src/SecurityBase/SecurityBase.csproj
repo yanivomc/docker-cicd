@@ -4,6 +4,10 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <IsPackable>true</IsPackable>
+    <require>
+      <require>mockRepo/core-eldan/src/SecurityBase/require.cs</require>
+    </require>
   </PropertyGroup>
 
 </Project>
