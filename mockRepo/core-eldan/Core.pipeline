@@ -64,6 +64,7 @@ pipeline {
                         eldanCore: {
                             // Run docker bake command
                             def runCommand = "docker buildx bake -f  docker-bake.hcl --set BUILD_NUMBER=${env.BUILD_NUMBER}"
+                            sh(runCommand)
                             
                             }
                         // },
