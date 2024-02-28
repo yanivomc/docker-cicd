@@ -1,0 +1,87 @@
+pipeline {
+    agent any
+
+    environment {
+        GIT_URL = 'https://github.com/yanivomc/docker-cicd.git'
+        GIT_BRANCH = 'eldan'
+        GIT_CREDENTIALS_ID = 'git-credentials-id'
+        REGISTRY_CREDS = 'dockerRepoeldan'
+        DOCKER_REPO = 'eldan-repo.devopshift.com'
+        DOCKER_IMAGE_NAME = "${DOCKER_REPO}/buildroot/buildroot"
+        DOCKER_IMAGE_TAG = "1.00.0"
+        DOCKER_FILE = 'buildroot.Dockerfile'
+        DOCKER_ARTIFACT_FILE = 'buildroot.artifacts.Dockerfile'
+        WORKSPACEFOLDER = '/home/vagrant/work/tmp/jenkins/docker-cicd/volume/workspace/buildroot/'
+        BINARY_UPLOADER_IMAGE = 'eldan-repo.devopshift.com/binary_manager/binary_manager:1.00.1'
+        BINARY_ARTIFACT_FILE = '/resources/output/sx4000/images/buildroot-artifact.tar'
+    }
+
+    stages {
+        stage('Clone repository') {
+            steps {
+                git branch: 'jenkins_docker', credentialsId: GIT_CREDENTIALS_ID, url: GIT_URL
+            }
+        }
+
+        // stage('Pull Docker Image') {
+        //     steps {
+        //         script {
+        //             docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
+        //                 docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}").pull()
+        //             }
+        //         }
+        //     }
+        // }
+
+        // stage('Run Build Container') {
+        //     steps {
+        //         script {
+        //             docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
+        //                 def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
+        //                 // buildImage.inside("-v ${WORKSPACEFOLDER}:/src/linux/buildroot/buildroot") {
+        //                 //     // /src/linux/buildroot/buildroot
+        //                 //     // The build process is started by the container's entrypoint
+        //                 // }
+        //                 // Define the Docker run command with the desired entrypoint or command
+        //                 def runCommand = "docker run --rm  -v ${WORKSPACEFOLDER}:/src/linux/buildroot/buildroot ${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}"
+        //                 def cleanContainer = "docker rm my-build-container"
+        //                 // Execute the Docker run command
+        //                 sh(runCommand)
+
+
+
+
+
+        //             }
+        //         }
+        //     }
+        // }
+
+        stage('Parallel artifact build and publish') {
+            steps {
+                script {
+                    parallel(
+                        eldanCore: {
+                            // Run docker bake command
+                            def runCommand = "docker buildx bake -f  docker-bake.hcl --set BUILD_NUMBER=${env.BUILD_NUMBER}"
+                            
+                            }
+                        // },
+                        // publishBinaryArtifacts: {
+                        //     docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
+                        //         def runCommand = "docker run --add-host eldan-repo.devopshift.com:172.18.0.4 --network docker-cicd_jb  --rm --env FILE_PATH=${BINARY_ARTIFACT_FILE} --env BUILD_NUMBER=${env.BUILD_NUMBER} --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=eldan-repo-raw --env NEXUS_PASSWORD=098123  -v ${WORKSPACEFOLDER}:/resources ${BINARY_UPLOADER_IMAGE}"
+                        //         sh(runCommand)
+                        //     }
+                        // }
+                    )
+                }
+            }
+        }
+    }
+
+   
+
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+}

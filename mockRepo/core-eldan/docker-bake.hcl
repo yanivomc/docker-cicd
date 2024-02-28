@@ -6,13 +6,17 @@ group "default" {
 variable "NEXUS_API_KEY" {
   default = "20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e"
 }
+variable "BUILD_NUMBER" {
+  default = "1.0.0"
+}
 
 target "ImageProcessing" {
   context = "./src/ImageProcessing"
   dockerfile = "dockerfile"
   tags = ["eldan/image-processing:latest"]
   args = {
-    NEXUS_API_KEY = "${NEXUS_API_KEY}"
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
   }
   // platforms = ["linux/amd64", "linux/arm64"]
 }
