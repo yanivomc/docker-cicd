@@ -11,8 +11,8 @@ target "ImageProcessing" {
   context = "./src/ImageProcessing"
   dockerfile = "dockerfile"
   tags = ["eldan/image-processing:latest"]
-  build_args = {
-    NEXUS_API_KEY = var.NEXUS_API_KEY
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}"
   }
   // platforms = ["linux/amd64", "linux/arm64"]
 }
@@ -24,8 +24,8 @@ target "SecurityBase" {
   // inherits = ["webapp-dev"]
   // platforms = ["linux/amd64", "linux/arm64"]
   tags = ["eldan/security-base:latest"]
-  build_args = {
-    NEXUS_API_KEY = var.NEXUS_API_KEY
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}"
   }
 }
 
@@ -33,8 +33,8 @@ target "ServicesSchedulerLib" {
   context = "./src/ServicesSchedulerLib"
   dockerfile = "dockerfile"
   tags = ["eldan/services-scheduler-lib:latest"]
-  build_args = {
-    NEXUS_API_KEY = var.NEXUS_API_KEY
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}"
   }
 }
 
@@ -42,8 +42,8 @@ target "SharedTypes" {
   context = "./src/SharedTypes"
   dockerfile = "dockerfile"
   tags = ["eldan/shared-types:latest"]
-  build_args = {
-    NEXUS_API_KEY = var.NEXUS_API_KEY
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}"
   }
   
 }
@@ -52,8 +52,8 @@ target "TypeExtensions" {
   context = "./src/TypeExtensions"
   dockerfile = "dockerfile"
   tags = ["eldan/type-extensions:latest"]
-  build_args = {
-    NEXUS_API_KEY = var.NEXUS_API_KEY
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}"
   }
 }
 
@@ -61,7 +61,7 @@ target "SSOlogon" {
   context = "./src/SSOlogon"
   dockerfile = "dockerfile"
   tags= ["eldan/sso-logon:latest"]
-  build_args = {
-    NEXUS_API_KEY = var.NEXUS_API_KEY
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}"
   }
 }
