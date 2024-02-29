@@ -6,7 +6,7 @@ from requests.auth import HTTPBasicAuth
 def usage():
     print("---------------------------------------------")
     print(f"The following environment variables must be set: FILE_PATH, NEXUS_REPO_PROJECT, NEXUS_USER, NEXUS_PASSWORD")
-    print(f"Optional: NEXUS_BASE_URL (default: https://satixfy-repo.devopshift.com/nexus/repository/satixfy-raw-repo), BUILD_NUMBER as the suffix for the file name in nexus (default: '')")
+    print(f"Optional: NEXUS_BASE_URL (default: https://nexus.satixfy.lan/nexus/repository/satixfy-raw-repo), BUILD_NUMBER as the suffix for the file name in nexus (default: '')")
     print(f"Example: docker run -ti -v \"$(pwd)\":/resources/ --env FILE_PATH=/resources/entrypoint.sh --env NEXUS_REPO_PROJECT=u-boot  --env NEXUS_USER=admin --env NEXUS_PASSWORD=adminpass satixfy-repo.devopshift.com/binary_manager/binary_manager:1.00.1")
     return
 
@@ -27,7 +27,7 @@ def upload_to_nexus(file_path, nexus_repo_url, nexus_user, nexus_password):
         # If env BUILD_NUMBER exists, use it as the file name suffix
         if os.getenv('BUILD_NUMBER', '') != '':
             upload_url = f"{nexus_repo_url}/{file_path.split('/')[-1].split('.')[0]}-{os.getenv('BUILD_NUMBER', '')}.{file_path.split('/')[-1].split('.')[1]}"
-            upload_url_latest = f"{nexus_repo_url}/{file_path.split('/')[-1].split('.')[0]}-latest.{file_path.split('/')[-1].split('.')[1]}"
+            upload_url_latest = f"{nexus_base_url}/{file_path.split('/')[-1].split('.')[0]}-latest.{file_path.split('/')[-1].split('.')[1]}"
         else:
             upload_url = f"{nexus_repo_url}/{file_path.split('/')[-1]}"
 
