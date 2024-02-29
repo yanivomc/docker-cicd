@@ -9,5 +9,9 @@
       <require>mockRepo/core-eldan/src/FlexibleCloner/require.cs</require>
     </require>
   </PropertyGroup>
-
+  <ItemGroup>
+    <!-- <PackageReference Include="Core.ImageProcessing" Version="1.0.0" /> -->
+    <!-- Using latest -->
+    <PackageReference Include="Core.ImageProcessing" Version="*" />
+  </ItemGroup>
 </Project>
