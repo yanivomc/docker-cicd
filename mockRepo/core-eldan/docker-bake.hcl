@@ -76,4 +76,14 @@ target "SSOlogon" {
     NEXUS_API_KEY = "${NEXUS_API_KEY}",
     BUILD_NUMBER = "${BUILD_NUMBER}"
   }
+
+
+  target "FlexibleCloner" {
+  context = "./src/FlexibleCloner"
+  dockerfile = "dockerfile"
+  tags= ["eldan/FlexibleCloner:latest"]
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
+  }
 }
