@@ -6,12 +6,13 @@
     <Nullable>disable</Nullable>
     <IsPackable>true</IsPackable>
     <require>
-      <require>mockRepo/core-eldan/src/FlexibleCloner/require.cs</require>
+      <require>mockRepo/core-eldan/src/DataAccess/require.cs</require>
     </require>
   </PropertyGroup>
   <ItemGroup>
-    <!-- <PackageReference Include="Core.ImageProcessing" Version="1.0.0" /> -->
+    <!-- <PackageReference Include="Core.?" Version="1.0.0" /> -->
     <!-- Using latest -->
     <PackageReference Include="Core.TypeExtensions" Version="*" />
+    <PackageReference Include="Core.SecurityBase" Version="*" />
   </ItemGroup>
 </Project>
