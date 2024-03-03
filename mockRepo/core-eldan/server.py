@@ -13,6 +13,11 @@ def process_job(job_id, jobs_list, processed_jobs):
     # Attempt to find the job by ID
     job = next((item for item in jobs_list if item["JobID"] == job_id), None)
 
+    if job['Depends'] == "NONE":
+        print(f"JobID: {job_id} ('{job['Name']}') has no dependencies and is part of docker bake process. skipping...")
+        processed_jobs.add(job_id)
+        return
+
     # If job has already been processed or doesn't exist, return early
     if job_id in processed_jobs:
         print(f"JobID: {job_id} already processed. Skipping...")
