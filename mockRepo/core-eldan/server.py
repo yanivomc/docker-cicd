@@ -1,3 +1,4 @@
+import os
 import gspread
 
 # Function to process a job
@@ -20,17 +21,35 @@ def process_job(job_id, jobs_list, processed_jobs):
         for dep in dependencies:
             process_job(dep, jobs_list, processed_jobs)
     else:
-        print(f"JobID: {job_id} ('{job['Name']}') has no dependencies.")
+        print(f"JobID: {job_id} ('{job['Name']}') has no dependencies and is part of docker bake process. skipping...")
+        processed_jobs.add(job_id)
+        return
 
     # Now process the current job
     print(f"Processing JobID: {job_id} ('{job['Name']}').")
+    # Create job name folder in the mockRepo/core-eldan folder if it doesn't exist
+    print(f"Creating folder for JobID: {job_id} ('{job['Name']}') in mockRepo/core-eldan folder...")
+    if job["Name"] not in os.listdir('./mockRepo/core-eldan/src/'):
+        os.mkdir(f'./mockRepo/core-eldan/src/{job["Name"]}')
+        copy_files(job_id, job["Name"])
+    else:
+        print(f"Folder for JobID: {job_id} ('{job['Name']}') already exists. Skipping...")
+        
+
     # Mark current job as processed
     processed_jobs.add(job_id)
+
+def copy_files(job_id, job_name):
+    print(f"Copying files for JobID: {job_id} ('{job_name}') from the mockRepo/core-eldan/src/DataAccess folder...")
+    os.system(f'cp -r ./mockRepo/core-eldan/src/DataAccess/* ./mockRepo/core-eldan/src/{job_name}/')
+    # Replace DataAccess with job_name in the copied files
+    os.system(f'find ./mockRepo/core-eldan/src/{job_name} -type f -exec sed -i "s/DataAccess/{job_name}/g" {{}} \;')
+    print(f"Files copied and replaced for JobID: {job_id} ('{job_name}').")
 
 # Main logic
 def main():
     # Initialize gspread client and open spreadsheet
-    gc = gspread.service_account(filename='./service-account.json')
+    gc = gspread.service_account(filename='./mockRepo/core-eldan/service-account.json')
     spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1qkWADi9XRcHSu3RcpvYGwJ2Jr6UCKi-Xt6KeevvItWY/edit?usp=sharing'
     sh = gc.open_by_url(spreadsheet_url)
     worksheet = sh.sheet1

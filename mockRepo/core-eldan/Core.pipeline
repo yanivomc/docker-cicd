@@ -78,6 +78,15 @@ pipeline {
                 }
             }
         }
+        stage('Running global jobs') {
+            steps {
+                script {
+                    // Run server.py
+                    def runCommand = "cd ${WORKSPACEFOLDER} && docker buildx bake -f  docker-bake.hcl --set *.args.BUILD_NUMBER=${env.BUILD_NUMBER}"
+                    sh(runCommand)
+                }
+            }
+        }
     }
 
    
