@@ -138,7 +138,16 @@ def copy_files(job_id, job_name):
 # Main logic
 def main():
     # Initialize gspread client and open spreadsheet
-    gc = gspread.service_account(filename='./mockRepo/core-eldan/service-account.json')
+    service_account_file_paths = ['./mockRepo/core-eldan/service-account.json', '/app/service-account.json', './service-account.json']
+    for path in service_account_file_paths:
+        if os.path.exists(path):
+            gc = gspread.service_account(filename=path)
+            break
+    else:
+        print("Service account file not found.")
+        exit(1)
+    
+    # gc = gspread.service_account(filename='./mockRepo/core-eldan/service-account.json')
     spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1qkWADi9XRcHSu3RcpvYGwJ2Jr6UCKi-Xt6KeevvItWY/edit?usp=sharing'
     sh = gc.open_by_url(spreadsheet_url)
     worksheet = sh.sheet1

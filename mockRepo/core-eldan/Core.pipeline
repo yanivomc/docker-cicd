@@ -82,7 +82,7 @@ pipeline {
             steps {
                 script {
                     // Run server.py
-                    def runCommand = "cd ${WORKSPACEFOLDER} && docker buildx bake -f  docker-bake.hcl --set *.args.BUILD_NUMBER=${env.BUILD_NUMBER}"
+                    def runCommand = "cd ${WORKSPACEFOLDER} && docker run -ti -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd)/src:/app/mockRepo/core-eldan/src/ yanivomc/eldan-pipeline"
                     sh(runCommand)
                 }
             }
