@@ -6,7 +6,7 @@
     <Nullable>disable</Nullable>
     <IsPackable>true</IsPackable>
     <require>
-      <require>mockRepo/core-eldan/src/FlexibleCloner/require.cs</require>
+      <require>mockRepo/core-eldan/src/Protocols/require.cs</require>
     </require>
   </PropertyGroup>
   <ItemGroup>
