@@ -23,39 +23,6 @@ pipeline {
             }
         }
 
-        // stage('Pull Docker Image') {
-        //     steps {
-        //         script {
-        //             docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
-        //                 docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}").pull()
-        //             }
-        //         }
-        //     }
-        // }
-
-        // stage('Run Build Container') {
-        //     steps {
-        //         script {
-        //             docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
-        //                 def buildImage = docker.image("${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}")
-        //                 // buildImage.inside("-v ${WORKSPACEFOLDER}:/src/linux/buildroot/buildroot") {
-        //                 //     // /src/linux/buildroot/buildroot
-        //                 //     // The build process is started by the container's entrypoint
-        //                 // }
-        //                 // Define the Docker run command with the desired entrypoint or command
-        //                 def runCommand = "docker run --rm  -v ${WORKSPACEFOLDER}:/src/linux/buildroot/buildroot ${DOCKER_IMAGE_NAME}-cicd:${DOCKER_IMAGE_TAG}"
-        //                 def cleanContainer = "docker rm my-build-container"
-        //                 // Execute the Docker run command
-        //                 sh(runCommand)
-
-
-
-
-
-        //             }
-        //         }
-        //     }
-        // }
 
         stage('Parallel artifact build') {
             steps {
@@ -65,19 +32,13 @@ pipeline {
                             // Run docker bake command
                             def runCommand = "cd ${WORKSPACEFOLDER} && docker buildx bake -f  docker-bake.hcl --set *.args.BUILD_NUMBER=${env.BUILD_NUMBER}"
                             sh(runCommand)
-                            
+                        }
+                            )
                             }
-                        // },
-                        // publishBinaryArtifacts: {
-                        //     docker.withRegistry('https://eldan-repo.devopshift.com', REGISTRY_CREDS) {
-                        //         def runCommand = "docker run --add-host eldan-repo.devopshift.com:172.18.0.4 --network docker-cicd_jb  --rm --env FILE_PATH=${BINARY_ARTIFACT_FILE} --env BUILD_NUMBER=${env.BUILD_NUMBER} --env NEXUS_REPO_PROJECT=buildroot --env NEXUS_USER=eldan-repo-raw --env NEXUS_PASSWORD=098123  -v ${WORKSPACEFOLDER}:/resources ${BINARY_UPLOADER_IMAGE}"
-                        //         sh(runCommand)
-                        //     }
-                        // }
-                    )
+                        }
+                    
                 }
-            }
-        }
+            
         stage('Running global jobs') {
             steps {
                 script {
