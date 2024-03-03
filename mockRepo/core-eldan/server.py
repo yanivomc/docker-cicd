@@ -5,7 +5,9 @@ from pathlib import Path
 import gspread
 from xml.etree import ElementTree as ET
 
-
+# Set Environment Variables
+NEXUS_API_KEY = os.environ.get('NEXUS_API_KEY', '20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e')
+BUILD_NUMBER = os.environ.get('BUILD_NUMBER' , '1.00.1')
 # Function to process a job
 def process_job(job_id, jobs_list, processed_jobs):
     # Attempt to find the job by ID

@@ -1,3 +1,4 @@
+**service-account.json
 **/volume*
 /AccountOwnerServer/obj
 /AccountOwnerServer/bin
@@ -21,3 +22,6 @@ publish
 /Tests/*.user
 /Integration/*.user
 .vscode/settings.json
+
+
+mockRepo/core-eldan/service-account.json
