@@ -1,4 +1,5 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<?xml version='1.0' encoding='utf-8'?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,10 +10,4 @@
       <require>mockRepo/core-eldan/src/ServicesScheduler/require.cs</require>
     </require>
   </PropertyGroup>
-  <ItemGroup>
-    <!-- <PackageReference Include="Core.?" Version="1.0.0" /> -->
-    <!-- Using latest -->
-    <PackageReference Include="Core.TypeExtensions" Version="*" />
-    <PackageReference Include="Core.SecurityBase" Version="*" />
-  </ItemGroup>
-</Project>
+<ItemGroup><PackageReference Include="Core.SecurityBase" Version="*" /><PackageReference Include="Core.TypeExtensions" Version="*" /><PackageReference Include="Core.Logger (OLD)" Version="*" /><PackageReference Include="Core.ServicesSchedulerLib" Version="*" /></ItemGroup></Project>

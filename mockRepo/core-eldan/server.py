@@ -19,6 +19,11 @@ def process_job(job_id, jobs_list, processed_jobs):
         print(f"JobID: {job_id} not found. Skipping...")
         return
 
+    if job["Name"] not in os.listdir('./mockRepo/core-eldan/src/'):
+        os.mkdir(f'./mockRepo/core-eldan/src/{job["Name"]}')
+        copy_files(job_id, job["Name"])
+    else:
+        copy_files(job_id, job["Name"])
     # Log if job has dependencies
     if job["Depends"] != "NONE":
         print(f"JobID: {job_id} ('{job['Name']}') has dependencies: {job['Depends']}. Processing dependencies first...")
@@ -38,14 +43,14 @@ def process_job(job_id, jobs_list, processed_jobs):
 
     # Now process the current job
     print(f"Processing JobID: {job_id} ('{job['Name']}').")
-    # Create job name folder in the mockRepo/core-eldan folder if it doesn't exist
-    print(f"Creating folder for JobID: {job_id} ('{job['Name']}') in mockRepo/core-eldan folder...")
-    if job["Name"] not in os.listdir('./mockRepo/core-eldan/src/'):
-        os.mkdir(f'./mockRepo/core-eldan/src/{job["Name"]}')
-        copy_files(job_id, job["Name"])
-    else:
-        print(f"Folder for JobID: {job_id} ('{job['Name']}') already exists. Skipping...")
-        copy_files(job_id, job["Name"])
+    # # Create job name folder in the mockRepo/core-eldan folder if it doesn't exist
+    # print(f"Creating folder for JobID: {job_id} ('{job['Name']}') in mockRepo/core-eldan folder...")
+    # if job["Name"] not in os.listdir('./mockRepo/core-eldan/src/'):
+    #     os.mkdir(f'./mockRepo/core-eldan/src/{job["Name"]}')
+    #     copy_files(job_id, job["Name"])
+    # else:
+    #     print(f"Folder for JobID: {job_id} ('{job['Name']}') already exists. Skipping...")
+    #     copy_files(job_id, job["Name"])
 
         
 

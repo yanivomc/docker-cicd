@@ -10,8 +10,6 @@
     </require>
   </PropertyGroup>
   <ItemGroup>
-    <!-- <PackageReference Include="Core.?" Version="1.0.0" /> -->
-    <!-- Using latest -->
     <PackageReference Include="Core.TypeExtensions" Version="*" />
     <PackageReference Include="Core.SecurityBase" Version="*" />
   </ItemGroup>
