@@ -7,7 +7,7 @@
     <Nullable>disable</Nullable>
     <IsPackable>true</IsPackable>
     <require>
-      <require>mockRepo/core-eldan/src/Firefly.Box/require.cs</require>
+      <require>mockRepo/core-eldan/src/FireflyBox/require.cs</require>
     </require>
   </PropertyGroup>
 </Project>

@@ -9,6 +9,6 @@ var projectName = System.Environment.GetEnvironmentVariable("PROJECTNAME");
 
 
 
-app.MapGet("/", () => "Hello from project: " + projectName);
+app.MapGet("/", () => "Hello from project!: " + projectName);
 
 app.Run();

@@ -26,9 +26,6 @@ target "ImageProcessing" {
 target "SecurityBase" {
   context = "./src/SecurityBase"
   dockerfile = "dockerfile"
-
-  // inherits = ["webapp-dev"]
-  // platforms = ["linux/amd64", "linux/arm64"]
   tags = ["eldan/security-base:latest"]
   args = {
     NEXUS_API_KEY = "${NEXUS_API_KEY}",
