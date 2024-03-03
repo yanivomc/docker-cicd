@@ -7,7 +7,7 @@
     <Nullable>disable</Nullable>
     <IsPackable>true</IsPackable>
     <require>
-      <require>mockRepo/core-eldan/src/LoggerBase (New)/require.cs</require>
+      <require>mockRepo/core-eldan/src/Loggerv1/require.cs</require>
     </require>
   </PropertyGroup>
-<ItemGroup><PackageReference Include="Core.TypeExtensions" Version="*" /></ItemGroup></Project>
+<ItemGroup><PackageReference Include="Core.SecurityBase" Version="*" /><PackageReference Include="Core.TypeExtensions" Version="*" /></ItemGroup></Project>

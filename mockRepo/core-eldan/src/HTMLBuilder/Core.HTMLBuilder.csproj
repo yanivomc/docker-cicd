@@ -10,4 +10,4 @@
       <require>mockRepo/core-eldan/src/HTMLBuilder/require.cs</require>
     </require>
   </PropertyGroup>
-<ItemGroup><PackageReference Include="Core.TypeExtensions" Version="*" /></ItemGroup></Project>
+<ItemGroup><PackageReference Include="Core.SecurityBase" Version="*" /><PackageReference Include="Core.TypeExtensions" Version="*" /></ItemGroup></Project>

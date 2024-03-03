@@ -43,14 +43,22 @@ def process_job(job_id, jobs_list, processed_jobs):
 
     # Now process the current job
     print(f"Processing JobID: {job_id} ('{job['Name']}').")
-    # # Create job name folder in the mockRepo/core-eldan folder if it doesn't exist
-    # print(f"Creating folder for JobID: {job_id} ('{job['Name']}') in mockRepo/core-eldan folder...")
-    # if job["Name"] not in os.listdir('./mockRepo/core-eldan/src/'):
-    #     os.mkdir(f'./mockRepo/core-eldan/src/{job["Name"]}')
-    #     copy_files(job_id, job["Name"])
-    # else:
-    #     print(f"Folder for JobID: {job_id} ('{job['Name']}') already exists. Skipping...")
-    #     copy_files(job_id, job["Name"])
+    # Run the docker build command and log the output to the console as json format.
+    # Catch docker build errors and log them to the console in json and continue processing the next job.
+    # Json structure should be { "JobID": 1, "Name": "DataAccess", "Status": "Success" , "Error": "" , timeofexecution: ""2021-09-01T12:00:00Z"" }
+    # Docker command: docker build  --build-arg NEXUS_API_KEY=20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e --build-arg BUILD_NUMBER=1.00.1 -t {jobname} -f dockerfile .
+    job_name = job["Name"].lower()
+    docker_build_command = f"cd ./mockRepo/core-eldan/src/{job_name}/ && docker build --build-arg NEXUS_API_KEY=20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e --build-arg BUILD_NUMBER=1.00.1 -t {job_name} -f dockerfile ."
+    try:
+        print(f"Running docker build command for JobID: {job_id} ('{job['Name']}')...")
+        output = subprocess.check_output(docker_build_command, shell=True, text=True)
+        print(f"JobID: {job_id} ('{job['Name']}') build successful.")
+    except subprocess.CalledProcessError as e:
+        output = (f"JobID: {job_id} ('{job['Name']}') build failed. Error: {e.output}")
+        print (output)
+        # Write the error to a file jobfailure_date_time.txt
+        with open(f'jobfailure_{job_id}.txt', 'w') as f:
+            f.write(output)
 
         
 
