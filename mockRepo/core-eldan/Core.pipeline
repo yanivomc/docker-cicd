@@ -30,7 +30,7 @@ pipeline {
                     parallel(
                         eldanCore: {
                             // Run docker bake command
-                            def runCommand = "cd ${WORKSPACEFOLDER} && docker buildx bake -f  docker-bake.hcl --set *.args.BUILD_NUMBER=${env.BUILD_NUMBER}"
+                            def runCommand = "cd ${WORKSPACEFOLDER} && docker buildx bake -f docker-bake.hcl --set \"*.args.BUILD_NUMBER=${env.BUILD_NUMBER}\""
                             sh(runCommand)
                         }
                             )
