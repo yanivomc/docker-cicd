@@ -1,6 +1,6 @@
 # docker-bake.hcl
 group "default" {
-  targets = ["ImageProcessing", "SecurityBase","ServicesSchedulerLib","SharedTypes","TypeExtensions","SSOlogon"]
+  targets = ["ImageProcessing", "SecurityBase","ServicesSchedulerLib","SharedTypes","TypeExtensions","SSOlogon","QR","FireflyBox"]
 }
 
 
@@ -76,7 +76,27 @@ target "SSOlogon" {
     NEXUS_API_KEY = "${NEXUS_API_KEY}",
     BUILD_NUMBER = "${BUILD_NUMBER}"
   }
+  
+}
 
+target "QR" {
+  context = "./src/QR"
+  dockerfile = "dockerfile"
+  tags= ["eldan/qr:latest"]
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
+  }
+  
+}
 
+target "FireflyBox" {
+  context = "./src/FireflyBox"
+  dockerfile = "dockerfile"
+  tags= ["eldan/qr:latest"]
+  args = {
+    NEXUS_API_KEY = "${NEXUS_API_KEY}",
+    BUILD_NUMBER = "${BUILD_NUMBER}"
+  }
   
 }

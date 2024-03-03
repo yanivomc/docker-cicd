@@ -10,4 +10,4 @@
       <require>mockRepo/core-eldan/src/Security/require.cs</require>
     </require>
   </PropertyGroup>
-<ItemGroup><PackageReference Include="Core.SecurityBase" Version="*" /><PackageReference Include="Core.TypeExtensions" Version="*" /><PackageReference Include="Core.SSOlogon" Version="*" /><PackageReference Include="Core.Firefly.Box" Version="*" /><PackageReference Include="Core.ENV" Version="*" /></ItemGroup></Project>
+</Project>
