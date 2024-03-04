@@ -35,7 +35,7 @@ services:
       ports:
         - "80:80"
         - "443:443"
-        - "5001:5000"
+        # - "5001:5000"
       command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
       # entrypoint: sleep 6000
       depends_on:
@@ -67,21 +67,21 @@ services:
 
 
 
-    code-server:
-      image: yanivomc/codeserver
-      restart: unless-stopped
-      volumes:
-        # - /home/vagrant/work/:/home/coder/project
-        - ./volume/codeserver/.config:/home/coder/.config
-        # Mount Docker socket
-        - /var/run/docker.sock:/var/run/docker.sock
-      environment:
-        - PASSWORD=098123
-        - TZ=Asia/Jerusalem
-      ports:
-        - "5005:8080"
-      networks:
-        - jb
+    # code-server:
+    #   image: yanivomc/codeserver
+    #   restart: unless-stopped
+    #   volumes:
+    #     # - /home/vagrant/work/:/home/coder/project
+    #     - ./volume/codeserver/.config:/home/coder/.config
+    #     # Mount Docker socket
+    #     - /var/run/docker.sock:/var/run/docker.sock
+    #   environment:
+    #     - PASSWORD=098123
+    #     - TZ=Asia/Jerusalem
+    #   ports:
+    #     - "5005:8080"
+    #   networks:
+    #     - jb
 
 
 networks:

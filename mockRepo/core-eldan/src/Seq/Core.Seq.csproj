@@ -10,4 +10,5 @@
       <require>mockRepo/core-eldan/src/Seq/require.cs</require>
     </require>
   </PropertyGroup>
-<ItemGroup><PackageReference Include="Core.SecurityBase" Version="*" /><PackageReference Include="Core.TypeExtensions" Version="*" /><PackageReference Include="Core.DataAccess" Version="*" /><PackageReference Include="Core.FireflyBox" Version="*" /><PackageReference Include="Core.ENV" Version="*" /></ItemGroup></Project>
+<ItemGroup><PackageReference Include="Core.SecurityBase" Version="*" />
+  <PackageReference Include="Core.TypeExtensions" Version="*" /><PackageReference Include="Core.DataAccess" Version="*" /><PackageReference Include="Core.FireflyBox" Version="*" /><PackageReference Include="Core.ENV" Version="*" /></ItemGroup></Project>

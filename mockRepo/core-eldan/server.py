@@ -54,8 +54,9 @@ def process_job(job_id, jobs_list, processed_jobs):
     # Catch docker build errors and log them to the console in json and continue processing the next job.
     # Json structure should be { "JobID": 1, "Name": "DataAccess", "Status": "Success" , "Error": "" , timeofexecution: ""2021-09-01T12:00:00Z"" }
     # Docker command: docker build  --build-arg NEXUS_API_KEY=bce3859a-2ea1-3a4e-8e27-96bbb8a3abc8 --build-arg BUILD_NUMBER=1.00.1 -t {jobname} -f dockerfile .
-    job_name = job["Name"].lower()
-    docker_build_command = f"cd ./mockRepo/core-eldan/src/{job_name}/ && docker build --build-arg NEXUS_API_KEY=bce3859a-2ea1-3a4e-8e27-96bbb8a3abc8 --build-arg BUILD_NUMBER=1.00.1 -t {job_name} -f dockerfile ."
+    job_name_lower = job["Name"].lower()
+    job_name = job["Name"]
+    docker_build_command = f"cd ./mockRepo/core-eldan/src/{job_name}/ && docker build --build-arg NEXUS_API_KEY=bce3859a-2ea1-3a4e-8e27-96bbb8a3abc8 --build-arg BUILD_NUMBER=1.00.1 -t {job_name_lower} -f dockerfile ."
     try:
         print(f"Running docker build command for JobID: {job_id} ('{job['Name']}')...")
         output = subprocess.check_output(docker_build_command, shell=True, text=True)
