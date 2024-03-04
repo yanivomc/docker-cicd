@@ -12,4 +12,5 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
 COPY ./server.py /app/server.py
 COPY ./service-account.json /app/service-account.json
+USER root
 CMD ["python", "server.py"]
