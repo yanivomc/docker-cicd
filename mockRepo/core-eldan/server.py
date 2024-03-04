@@ -6,7 +6,7 @@ import gspread
 from xml.etree import ElementTree as ET
 
 # Set Environment Variables
-NEXUS_API_KEY = os.environ.get('NEXUS_API_KEY', '20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e')
+NEXUS_API_KEY = os.environ.get('NEXUS_API_KEY', 'bce3859a-2ea1-3a4e-8e27-96bbb8a3abc8')
 BUILD_NUMBER = os.environ.get('BUILD_NUMBER' , '1.00.1')
 # Function to process a job
 def process_job(job_id, jobs_list, processed_jobs):
@@ -53,9 +53,9 @@ def process_job(job_id, jobs_list, processed_jobs):
     # Run the docker build command and log the output to the console as json format.
     # Catch docker build errors and log them to the console in json and continue processing the next job.
     # Json structure should be { "JobID": 1, "Name": "DataAccess", "Status": "Success" , "Error": "" , timeofexecution: ""2021-09-01T12:00:00Z"" }
-    # Docker command: docker build  --build-arg NEXUS_API_KEY=20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e --build-arg BUILD_NUMBER=1.00.1 -t {jobname} -f dockerfile .
+    # Docker command: docker build  --build-arg NEXUS_API_KEY=bce3859a-2ea1-3a4e-8e27-96bbb8a3abc8 --build-arg BUILD_NUMBER=1.00.1 -t {jobname} -f dockerfile .
     job_name = job["Name"].lower()
-    docker_build_command = f"cd ./mockRepo/core-eldan/src/{job_name}/ && docker build --build-arg NEXUS_API_KEY=20a4b826-31aa-3ab7-a0b1-cb3fd9fbfa7e --build-arg BUILD_NUMBER=1.00.1 -t {job_name} -f dockerfile ."
+    docker_build_command = f"cd ./mockRepo/core-eldan/src/{job_name}/ && docker build --build-arg NEXUS_API_KEY=bce3859a-2ea1-3a4e-8e27-96bbb8a3abc8 --build-arg BUILD_NUMBER=1.00.1 -t {job_name} -f dockerfile ."
     try:
         print(f"Running docker build command for JobID: {job_id} ('{job['Name']}')...")
         output = subprocess.check_output(docker_build_command, shell=True, text=True)
