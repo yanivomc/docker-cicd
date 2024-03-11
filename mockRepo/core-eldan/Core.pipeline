@@ -39,15 +39,7 @@ pipeline {
                     
                 }
             
-        stage('Running global jobs') {
-            steps {
-                script {
-                    // Run server.py
-                    def runCommand = "cd \${WORKSPACEFOLDER} && docker run -i -v /var/run/docker.sock:/var/run/docker.sock -v \$(pwd)/src:/app/mockRepo/core-eldan/src/ yanivomc/eldan-pipeline"
-                    sh(runCommand)
-                }
-            }
-        }
+
     }
 
    
