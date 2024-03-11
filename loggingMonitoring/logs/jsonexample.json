@@ -1,0 +1,20 @@
+{"date": "2024-02-18T07:59:24Z","type": "Information","service":"CrmService", "class":"CarActivityWS" ,"request":"p_carActivityWSRequest", "message":{"ActivityDate":"2024-02-18T07:59:24","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"29496302","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."}, "SessionID": "KHKINNA1BE"}
+
+
+,
+
+{
+
+        "date": "2024-02-25T06:16:27.550000Z",
+
+        "type": "Information",
+
+        "service": "CrmService",
+
+        "class": "StreetInterface",
+
+        "message": "streetName":"עסיס ענבים', streetCode:='1227', cityCode:='7100'",
+
+        "SessionID": "0HSMPPES2T"
+
+    }

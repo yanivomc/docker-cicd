@@ -1,0 +1,946 @@
+[
+    {
+        "date": "2024-02-18T08:23:45.270000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message": {"transactionid":"77545ca5-3bcd-4f21-9f16-9b6949b9c5bb","rentCustomerId":"EH0055282","firstName":"YOGEV","lastName":"SHIMONY","governmentId":"22900367","telephone1":"","telephone2":"0546961480"},
+        "SessionID": "Q43VCWO3HN"
+    },
+    {
+        "date": "2024-02-18T08:25:37.540000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CreateCustomer",
+        "message":{"Darkon":null,"Mdina":0,"OskMurshe":0,"P_ADDITIONAL_PHONE":null,"P_CITY_CODE":1308,"P_CONTACT_CODE":0,"P_CP_TZ":31526676,"P_CRM_CODE":"1821c10a-0254-e711-811c-005056b27c38","P_CS_ADDRESS":"קדימה צ..."},
+        "SessionID": "N9WC65478O"
+    },
+    {
+        "date": "2024-02-18T08:46:35.650000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:46:35","ActivityTypeEnum":100000003,"AgreementNumber":"178503","CarNumber":"22270202","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "L74KAOA0MT"
+    },
+    {
+        "date": "2024-02-18T08:46:35.800000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:46:35","ActivityTypeEnum":100000003,"AgreementNumber":"178503","CarNumber":"22270202","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "P53DWG2LWO"
+    },
+    {
+        "date": "2024-02-18T08:47:00.810000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:47:00","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"80853001","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "7AYIHGYWLK"
+    },
+    {
+        "date": "2024-02-18T08:47:01Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:47:00","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"80853001","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "XLIGPRWKIO"
+    },
+    {
+        "date": "2024-02-18T08:47:28.130000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:47:27","ActivityTypeEnum":100000003,"AgreementNumber":"177856","CarNumber":"56001301","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "H2UFKLIVC3"
+    },
+    {
+        "date": "2024-02-18T08:47:28.400000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:47:28","ActivityTypeEnum":100000003,"AgreementNumber":"177856","CarNumber":"56001301","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "ZOOB6DWWXE"
+    },
+    {
+        "date": "2024-02-18T08:48:26.300000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:48:26","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"72972401","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "58J2ULOZ8B"
+    },
+    {
+        "date": "2024-02-18T08:48:26.490000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:48:26","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"72972401","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "NTZT6UKYT7"
+    },
+    {
+        "date": "2024-02-18T08:53:24.110000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:53:23","ActivityTypeEnum":100000003,"AgreementNumber":"179330","CarNumber":"76334901","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "ISORMGBYB0"
+    },
+    {
+        "date": "2024-02-18T08:53:24.280000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:53:24","ActivityTypeEnum":100000003,"AgreementNumber":"179330","CarNumber":"76334901","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "0AVI7U51NJ"
+    },
+    {
+        "date": "2024-02-18T08:54:01.740000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:54:01","ActivityTypeEnum":100000003,"AgreementNumber":"179555","CarNumber":"55489401","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "DL3GGDEE4Q"
+    },
+    {
+        "date": "2024-02-18T08:54:01.920000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:54:01","ActivityTypeEnum":100000003,"AgreementNumber":"179555","CarNumber":"55489401","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "HLROGORFHR"
+    },
+    {
+        "date": "2024-02-18T08:54:21.850000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:54:21","ActivityTypeEnum":100000003,"AgreementNumber":"179555","CarNumber":"25780802","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "H78ENL8B0N"
+    },
+    {
+        "date": "2024-02-18T08:54:22.010000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:54:21","ActivityTypeEnum":100000003,"AgreementNumber":"179555","CarNumber":"25780802","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "JWLH57YHLI"
+    },
+    {
+        "date": "2024-02-18T08:54:43.510000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:54:43","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"39427102","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "B74USOSGBT"
+    },
+    {
+        "date": "2024-02-18T08:54:43.710000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:54:43","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"39427102","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "D0U6CGMZ25"
+    },
+    {
+        "date": "2024-02-18T08:55:46.540000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:55:46","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"32571502","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "0J38PJCNV8"
+    },
+    {
+        "date": "2024-02-18T08:55:46.710000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:55:46","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"32571502","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "219HJTCPFZ"
+    },
+    {
+        "date": "2024-02-18T08:56:10.100000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:56:09","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"39426602","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "U8PQD8UNN7"
+    },
+    {
+        "date": "2024-02-18T08:56:10.320000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:56:10","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"39426602","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "OIY1346WQ2"
+    },
+    {
+        "date": "2024-02-18T08:56:31.070000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:56:30","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"74876501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "E9E4CNDFHX"
+    },
+    {
+        "date": "2024-02-18T08:56:31.530000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:56:31","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"74876501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "YY9YUTDHOP"
+    },
+    {
+        "date": "2024-02-18T08:57:30.490000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:57:30","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"74169301","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "WP8MUV4UN0"
+    },
+    {
+        "date": "2024-02-18T08:57:31.050000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:57:30","ActivityTypeEnum":100000003,"AgreementNumber":"179712","CarNumber":"74169301","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "4PG0O2D5CB"
+    },
+    {
+        "date": "2024-02-18T08:58:03.230000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:58:02","ActivityTypeEnum":100000003,"AgreementNumber":"179737","CarNumber":"48872001","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "K511ADX3IE"
+    },
+    {
+        "date": "2024-02-18T08:58:03.370000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:58:03","ActivityTypeEnum":100000003,"AgreementNumber":"179737","CarNumber":"48872001","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "7J9DVJSJJ1"
+    },
+    {
+        "date": "2024-02-18T08:58:35.130000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:58:34","ActivityTypeEnum":100000003,"AgreementNumber":"179555","CarNumber":"52369501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "VOK5Q9XOZL"
+    },
+    {
+        "date": "2024-02-18T08:58:35.300000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:58:35","ActivityTypeEnum":100000003,"AgreementNumber":"179555","CarNumber":"52369501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "FKW7EZTYN4"
+    },
+    {
+        "date": "2024-02-18T08:59:03.180000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:59:02","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"50309501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "VDT7VGWIH0"
+    },
+    {
+        "date": "2024-02-18T08:59:03.350000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:59:03","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"50309501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "U9UMH5I23O"
+    },
+    {
+        "date": "2024-02-18T08:59:24.220000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:59:23","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"29496302","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "PRHVMQDI7X"
+    },
+    {
+        "date": "2024-02-18T08:59:24.410000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:59:24","ActivityTypeEnum":100000003,"AgreementNumber":"178876","CarNumber":"29496302","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "KHKINNA1BE"
+    },
+    {
+        "date": "2024-02-18T08:59:49.920000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:59:49","ActivityTypeEnum":100000003,"AgreementNumber":"178927","CarNumber":"8029680","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"110..."},
+        "SessionID": "Z95781BSPP"
+    },
+    {
+        "date": "2024-02-18T08:59:50.080000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T07:59:49","ActivityTypeEnum":100000003,"AgreementNumber":"178927","CarNumber":"8029680","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"110..."},
+        "SessionID": "NQU1LTE2N5"
+    },
+    {
+        "date": "2024-02-18T09:00:39.570000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"7f09f673-72d2-4d56-85b8-3aa7cf08a675","rentCustomerId":"IS1610484","firstName":"סיון","lastName":"מויאל","governmentId":"21915889","telephone1":"","telephone2":""},
+        "SessionID": "LRLV0ATCKQ"
+    },
+    {
+        "date": "2024-02-18T09:04:47.030000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"70e353e2-bd43-4000-89d9-e90dc0e82dfc","rentCustomerId":"IN0462748","firstName":"ORY","lastName":"SCHWARTZ","governmentId":"24012391","telephone1":"","telephone2":""},
+        "SessionID": "QPX6968EF8"
+    },
+    {
+        "date": "2024-02-18T09:07:58.540000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:07:58","ActivityTypeEnum":100000003,"AgreementNumber":"178927","CarNumber":"26384901","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "DDBPD0U59W"
+    },
+    {
+        "date": "2024-02-18T09:07:58.780000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:07:58","ActivityTypeEnum":100000003,"AgreementNumber":"178927","CarNumber":"26384901","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "C2J8FY81WB"
+    },
+    {
+        "date": "2024-02-18T09:09:51.800000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"9e115366-689e-441d-b51d-af001c502224","rentCustomerId":"IS0915472","firstName":"אורית","lastName":"הנקין","governmentId":"29590437","telephone1":"0527561421","telephone2":"0363854..."},
+        "SessionID": "84ZAF3ZGG4"
+    },
+    {
+        "date": "2024-02-18T09:10:30.590000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:10:30","ActivityTypeEnum":100000003,"AgreementNumber":"179023","CarNumber":"59563601","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "8UWJ9GOKCS"
+    },
+    {
+        "date": "2024-02-18T09:10:30.790000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:10:30","ActivityTypeEnum":100000003,"AgreementNumber":"179023","CarNumber":"59563601","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "IDWT1JY928"
+    },
+    {
+        "date": "2024-02-18T09:11:39.690000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:11:39","ActivityTypeEnum":100000003,"AgreementNumber":"179709","CarNumber":"51456501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "KFPA6GZH98"
+    },
+    {
+        "date": "2024-02-18T09:11:39.860000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:11:39","ActivityTypeEnum":100000003,"AgreementNumber":"179709","CarNumber":"51456501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "YIDFDF2PX9"
+    },
+    {
+        "date": "2024-02-18T09:12:25.380000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:12:25","ActivityTypeEnum":100000003,"AgreementNumber":"179709","CarNumber":"20560902","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "0CZB2VB77M"
+    },
+    {
+        "date": "2024-02-18T09:12:25.520000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:12:25","ActivityTypeEnum":100000003,"AgreementNumber":"179709","CarNumber":"20560902","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "UOM1HNJKRD"
+    },
+    {
+        "date": "2024-02-18T09:14:00.650000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:14:00","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"75353501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "8Q3836P7AT"
+    },
+    {
+        "date": "2024-02-18T09:14:00.830000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:14:00","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"75353501","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "7K4D1Y7QMO"
+    },
+    {
+        "date": "2024-02-18T09:14:18.370000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:14:18","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"74652601","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "1NJPFKIGP2"
+    },
+    {
+        "date": "2024-02-18T09:14:18.510000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:14:18","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"74652601","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "7B5B7YO9U3"
+    },
+    {
+        "date": "2024-02-18T09:14:40.620000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:14:40","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"5679085","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"110..."},
+        "SessionID": "GRV6FSNNKN"
+    },
+    {
+        "date": "2024-02-18T09:14:40.810000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:14:40","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"5679085","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"110..."},
+        "SessionID": "X8BCOBD9E4"
+    },
+    {
+        "date": "2024-02-18T09:15:01.530000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:15:01","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"44228202","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "1MQVL7EEO8"
+    },
+    {
+        "date": "2024-02-18T09:15:01.740000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:15:01","ActivityTypeEnum":100000003,"AgreementNumber":"179314","CarNumber":"44228202","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "H5B0C8INBZ"
+    },
+    {
+        "date": "2024-02-18T09:16:20.540000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:16:20","ActivityTypeEnum":100000003,"AgreementNumber":"179157","CarNumber":"32895402","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "9DGHLXUK37"
+    },
+    {
+        "date": "2024-02-18T09:16:20.760000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:16:20","ActivityTypeEnum":100000003,"AgreementNumber":"179157","CarNumber":"32895402","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "IIS8YP155X"
+    },
+    {
+        "date": "2024-02-18T09:21:37.320000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"5486d0dd-0679-468f-857c-a41e7fcd3461","rentCustomerId":"IS1569306","firstName":"רותי","lastName":"מלניק","governmentId":"55961296","telephone1":"0526421236","telephone2":""},
+        "SessionID": "WJDJ4WC78P"
+    },
+    {
+        "date": "2024-02-18T09:23:06.140000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106012274","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "HZSY9SXF7R"
+    },
+    {
+        "date": "2024-02-18T09:25:53.840000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:25:53","ActivityTypeEnum":100000003,"AgreementNumber":"179737","CarNumber":"63181201","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "LTNJAISGHE"
+    },
+    {
+        "date": "2024-02-18T09:25:53.990000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:25:53","ActivityTypeEnum":100000003,"AgreementNumber":"179737","CarNumber":"63181201","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "SPPG0WXN7K"
+    },
+    {
+        "date": "2024-02-18T09:26:08.760000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:26:08","ActivityTypeEnum":100000003,"AgreementNumber":"179798","CarNumber":"29530902","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "F2R3P5BDE2"
+    },
+    {
+        "date": "2024-02-18T09:26:08.950000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:26:08","ActivityTypeEnum":100000003,"AgreementNumber":"179798","CarNumber":"29530902","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "IY2VYRYGD1"
+    },
+    {
+        "date": "2024-02-18T09:26:27.880000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:26:27","ActivityTypeEnum":100000003,"AgreementNumber":"179798","CarNumber":"89553401","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "GPCO53X4RJ"
+    },
+    {
+        "date": "2024-02-18T09:26:28.030000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T08:26:27","ActivityTypeEnum":100000003,"AgreementNumber":"179798","CarNumber":"89553401","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":"11..."},
+        "SessionID": "8RJF0R04U6"
+    },
+    {
+        "date": "2024-02-18T09:27:06.890000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"1b7a963f-c6d7-4c7b-b934-6e65cf5f56ca","rentCustomerId":"CC0204272","firstName":"אסתר","lastName":"צקול","governmentId":"308301142","telephone1":"0503647864","telephone2":""},
+        "SessionID": "5CDFBVRDNQ"
+    },
+    {
+        "date": "2024-02-18T09:28:03.520000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CreateCaseRequest",
+        "message":{"AgreementNumber":"177947","Branch":"154","CarDeliveryDate":"2023-11-30T11:35:15","CarLicenceNumber":"28805901","ContactId":"4f3d8b16-a38a-ee11-8168-005056b27c38","DaysSinceDelivery":79.8700028236},
+        "SessionID": "96L56VDX9N"
+    },
+    {
+        "date": "2024-02-18T09:28:51.040000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"c6a7f038-608c-42bf-9694-dff77f79eed9","rentCustomerId":"IS1601873","firstName":"JOTDAN ROLLY","lastName":"BOTAKA","governmentId":"BJJ13P8J7","telephone1":"0523922155","telephone2":""},
+        "SessionID": "PWJLC201M4"
+    },
+    {
+        "date": "2024-02-18T09:30:09.660000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CreateCaseRequest",
+        "message":{"AgreementNumber":"177850","Branch":"390","CarDeliveryDate":"2023-11-24T08:25:46","CarLicenceNumber":"5666039","ContactId":"dcd50fbc-e76a-e811-8124-005056b27c38","DaysSinceDelivery":86.00304981182},
+        "SessionID": "KYBY71H3P7"
+    },
+    {
+        "date": "2024-02-18T09:36:42.410000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"1132b68a-f6af-4455-be6a-c77ed60d7d06","rentCustomerId":"IS947848","firstName":"דורון","lastName":"בראשי","governmentId":"25109430","telephone1":"0558813317","telephone2":""},
+        "SessionID": "U5MCVRNWDZ"
+    },
+    {
+        "date": "2024-02-18T09:37:41.990000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"fc4dff0a-d4a5-491c-b5c2-158de3bb0115","rentCustomerId":"IS1058295","firstName":"מאיה","lastName":"פרנקפורטר בראשי","governmentId":"25530163","telephone1":"0503220973","telephone2":""},
+        "SessionID": "362S7W732X"
+    },
+    {
+        "date": "2024-02-18T09:45:09.880000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"c7aa9b0a-8312-49bf-9edc-22371dc54cb6","rentCustomerId":"IS1610485","firstName":"שמשון","lastName":"בר לב","governmentId":"9238338","telephone1":"0524291184","telephone2":""},
+        "SessionID": "0M9AVAJR82"
+    },
+    {
+        "date": "2024-02-18T09:45:58.970000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"d09cfe5b-1f7f-454c-8932-d80c2c82adb2","rentCustomerId":"IS1376347","firstName":"שחר","lastName":"יגל","governmentId":"204425425","telephone1":"0547792730","telephone2":""},
+        "SessionID": "E1ONGCK3R1"
+    },
+    {
+        "date": "2024-02-18T09:46:05Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"d971b324-c7a4-4928-b2c9-73ae3ed3c1c5","rentCustomerId":"IS1610486","firstName":"זהבה","lastName":"לביא","governmentId":"51662187","telephone1":"0544924949","telephone2":""},
+        "SessionID": "FK2515HA7W"
+    },
+    {
+        "date": "2024-02-18T09:46:38.350000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CreateCaseRequest",
+        "message":{"AgreementNumber":"178355","Branch":"226","CarDeliveryDate":"2023-12-27T11:08:36","CarLicenceNumber":"76540801","ContactId":"076bb40e-7a46-e811-8123-005056b27c38","DaysSinceDelivery":52.9014131438},
+        "SessionID": "L3DDZAM98B"
+    },
+    {
+        "date": "2024-02-18T09:46:57.650000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"105880577","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "558RNPSQG8"
+    },
+    {
+        "date": "2024-02-18T09:47:45.930000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"6222abcb-f034-45cf-9fbb-f6cc32dc0bbf","rentCustomerId":"IS1609783","firstName":"איתן","lastName":"אייר","governmentId":"209445683","telephone1":"","telephone2":"050-5751656"},
+        "SessionID": "6UCV53DGKU"
+    },
+    {
+        "date": "2024-02-18T09:49:33.440000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"ce06f3d7-432c-4127-bfcb-442f4bef7487","rentCustomerId":"IS1566382","firstName":"יהודית","lastName":"גלזנר","governmentId":"51278760","telephone1":"0505656147","telephone2":""},
+        "SessionID": "QN6GNWHJUN"
+    },
+    {
+        "date": "2024-02-18T09:50:01.940000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"56611b34-5f97-4c3c-84bc-0ccaed36dfd7","rentCustomerId":"IS1442208","firstName":"EPHRAIM YESHURAN","lastName":"ROSENBLOOM","governmentId":"555048471","telephone1":"","telephone2":"..."},
+        "SessionID": "RDX0SJ6NRA"
+    },
+    {
+        "date": "2024-02-18T09:51:15.130000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"0a21b07a-2d77-46e7-a1b1-4cca30f57c53","rentCustomerId":"IS0669344","firstName":"דוד","lastName":"גלזנר","governmentId":"10656775","telephone1":"0505656147","telephone2":"050-57516..."},
+        "SessionID": "CDWB9JXN2W"
+    },
+    {
+        "date": "2024-02-18T09:51:54.720000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106031810","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "MWRM30C2S2"
+    },
+    {
+        "date": "2024-02-18T09:53:25.500000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"4e014e39-3c60-4e5d-ae19-e7cd31421597","rentCustomerId":"IS1505885","firstName":"טטיאנה","lastName":"פולונסקי","governmentId":"11060209","telephone1":"0546787076","telephone2":""},
+        "SessionID": "910ZM2PX9S"
+    },
+    {
+        "date": "2024-02-18T09:54:44.360000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106150521","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "BHAICKRR92"
+    },
+    {
+        "date": "2024-02-18T09:55:08.850000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CreateCaseRequest",
+        "message":{"AgreementNumber":"179414","Branch":"196","CarDeliveryDate":"2024-01-24T12:59:06","CarLicenceNumber":"88195801","ContactId":"f18647a6-f7d3-e511-93fa-005056b23be8","DaysSinceDelivery":24.8305862594},
+        "SessionID": "L755FD6V9Z"
+    },
+    {
+        "date": "2024-02-18T09:57:14.890000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"78a9a02f-c0dc-48c7-a1fd-b160db68cc02","rentCustomerId":"IS1610487","firstName":"ענבר","lastName":"מוספי","governmentId":"23784341","telephone1":"0509754228","telephone2":""},
+        "SessionID": "EKMWOHS34I"
+    },
+    {
+        "date": "2024-02-18T09:57:55.830000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"29a49e3d-16f9-4b29-bdbe-ec4360c082af","rentCustomerId":"IS1610488","firstName":"דניאל","lastName":"אלדר","governmentId":"28575454","telephone1":"0549991759","telephone2":""},
+        "SessionID": "232M5USTJU"
+    },
+    {
+        "date": "2024-02-18T09:57:57.290000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"acea8ef5-290f-499d-8cc6-e1a1675dd4e0","rentCustomerId":"CC66267","firstName":"אסנת","lastName":"מוספי","governmentId":"24538803","telephone1":"0525942743","telephone2":"08-9453370..."},
+        "SessionID": "IV8VAJA4T6"
+    },
+    {
+        "date": "2024-02-18T09:57:58.180000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"bfbbb4d1-4d49-42ee-b92d-80d4375b9afc","rentCustomerId":"IS1461400","firstName":"עידן","lastName":"כהן","governmentId":"311264337","telephone1":"0502521011","telephone2":""},
+        "SessionID": "U5Z56577GB"
+    },
+    {
+        "date": "2024-02-18T09:58:05.050000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CreateCustomer",
+        "message":{"Darkon":null,"Mdina":0,"OskMurshe":0,"P_ADDITIONAL_PHONE":"089453370","P_CITY_CODE":0,"P_CONTACT_CODE":0,"P_CP_TZ":24538803,"P_CRM_CODE":"7fb2e557-fde9-e511-93fa-005056b23be8","P_CS_ADDRESS":"חנה..."},
+        "SessionID": "MB6Z666XO8"
+    },
+    {
+        "date": "2024-02-18T09:58:17.940000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"2790c2be-fb4c-43c2-8613-78fe144ca2d2","rentCustomerId":"IS1608777","firstName":"אלכסנדר","lastName":"שחור","governmentId":"204698724","telephone1":"0556610109","telephone2":""},
+        "SessionID": "0T5HOT67IG"
+    },
+    {
+        "date": "2024-02-18T09:58:42.440000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106031811","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "2EZ134ZX3N"
+    },
+    {
+        "date": "2024-02-18T09:59:30.580000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-16T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106012275","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "1LOE1LGG6Q"
+    },
+    {
+        "date": "2024-02-18T09:59:44.720000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"bf73c41c-0063-48b3-adde-30c8c5eef07c","rentCustomerId":"IS1610489","firstName":"יאן","lastName":"לויט","governmentId":"206088288","telephone1":"0528506590","telephone2":""},
+        "SessionID": "53OYE2NTJH"
+    },
+    {
+        "date": "2024-02-18T10:00:34.070000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"a9072dc0-56b6-41ac-a5a2-205d5e00d08c","rentCustomerId":"IS1610490","firstName":"אליוסף דוד","lastName":"סרמונטה","governmentId":"313376642","telephone1":"0526731813","telephone2":""},
+        "SessionID": "N9WZDOA489"
+    },
+    {
+        "date": "2024-02-18T10:00:54.960000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"105914113","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "4RDUJTNDUJ"
+    },
+    {
+        "date": "2024-02-18T10:01:33.060000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"a1f06983-198d-4d59-b073-9b2fcb8eb47f","rentCustomerId":"IS1610491","firstName":"רון","lastName":"לויט","governmentId":"319048807","telephone1":"0533333333","telephone2":""},
+        "SessionID": "MUGVYM0FA5"
+    },
+    {
+        "date": "2024-02-18T10:01:55.500000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"105937124","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "1Y3R3FLSY2"
+    },
+    {
+        "date": "2024-02-18T10:02:18.460000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T09:02:18","ActivityTypeEnum":100000001,"AgreementNumber":"179956","CarNumber":"46657802","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"0","InvoiceNumber":""},
+        "SessionID": "3T4JD0VKVM"
+    },
+    {
+        "date": "2024-02-18T10:02:25.540000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106150522","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "S8F5UFQLQG"
+    },
+    {
+        "date": "2024-02-18T10:02:48.950000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"c294a477-c8ed-4982-8140-f740bb81ee1b","rentCustomerId":"IS1389847","firstName":"יניב","lastName":"שיינביין","governmentId":"25455650","telephone1":"0543484765","telephone2":"05852..."},
+        "SessionID": "2HPRN5O9Y8"
+    },
+    {
+        "date": "2024-02-18T10:04:46.170000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"6bd4954d-308f-434d-87c3-223882c2fe68","rentCustomerId":"IS1418567","firstName":"איתמר","lastName":"בוסקילה","governmentId":"301099339","telephone1":"0525230656","telephone2":""},
+        "SessionID": "VO0PJM9MKQ"
+    },
+    {
+        "date": "2024-02-18T10:05:04.920000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T09:05:04","ActivityTypeEnum":100000001,"AgreementNumber":"179628","CarNumber":"53184202","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"0","InvoiceNumber":""},
+        "SessionID": "KM5HUOR54Q"
+    },
+    {
+        "date": "2024-02-18T10:05:30.950000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"105914114","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "08MXW9NNT0"
+    },
+    {
+        "date": "2024-02-18T10:08:35.610000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"61edee67-4e2d-49aa-8095-75740b041c84","rentCustomerId":"IS1120016","firstName":"אטלאי","lastName":"בלאי","governmentId":"310137492","telephone1":"0526214600","telephone2":""},
+        "SessionID": "3SXBR1NHAP"
+    },
+    {
+        "date": "2024-02-18T10:09:49.800000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"9c8ea4b8-cb01-4415-9980-164dcef0efa8","rentCustomerId":"IS1610492","firstName":"שחר","lastName":"ולדמן","governmentId":"308317304","telephone1":"0525916157","telephone2":""},
+        "SessionID": "WMRV0GVOA2"
+    },
+    {
+        "date": "2024-02-18T10:12:34.100000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"2b05b4ae-70ec-41fb-a781-6ebf2fdc4182","rentCustomerId":"IS1414212","firstName":"מיכל","lastName":"עיני","governmentId":"36582872","telephone1":"0508112221","telephone2":""},
+        "SessionID": "07PPJT7ZY3"
+    },
+    {
+        "date": "2024-02-18T10:14:37.940000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"f266aeea-0817-4c4e-ab93-961093a6f48a","rentCustomerId":"IS1398649","firstName":"שלומית","lastName":"דנטה","governmentId":"55254619","telephone1":"0547204512","telephone2":""},
+        "SessionID": "DHQJ9DBKG8"
+    },
+    {
+        "date": "2024-02-18T10:15:31.240000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"7f07102e-6905-4fa0-9a43-bb06bbfb3ebe","rentCustomerId":"IS519706","firstName":"איתן","lastName":"יהושוע","governmentId":"58625948","telephone1":"0507343434","telephone2":"03556723..."},
+        "SessionID": "PK6P3KDONK"
+    },
+    {
+        "date": "2024-02-18T10:15:35.490000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CreateCustomer",
+        "message":{"Darkon":null,"Mdina":0,"OskMurshe":0,"P_ADDITIONAL_PHONE":"035567230","P_CITY_CODE":6600,"P_CONTACT_CODE":0,"P_CP_TZ":58625948,"P_CRM_CODE":"a83707cd-01af-e611-93ff-005056b23be8","P_CS_ADDRESS":"..."},
+        "SessionID": "0O0HAO3ZEI"
+    },
+    {
+        "date": "2024-02-18T10:16:58.240000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T09:16:57","ActivityTypeEnum":100000002,"AgreementNumber":"180005","CarNumber":"51036601","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"0","InvoiceNumber":""},
+        "SessionID": "I6PBDKVHWO"
+    },
+    {
+        "date": "2024-02-18T10:17:29.320000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"4355d381-63ac-4c7f-8faa-f8c8a6206536","rentCustomerId":"IS572535","firstName":"משה","lastName":"דנטה","governmentId":"54263561","telephone1":"0548035698","telephone2":""},
+        "SessionID": "5VJQQARLZR"
+    },
+    {
+        "date": "2024-02-18T10:17:36.650000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"ef794f8b-2426-4d7d-8553-e6d5a40c08f9","rentCustomerId":"IS1610493","firstName":"פריחה","lastName":"פרגי","governmentId":"58302712","telephone1":"0547559744","telephone2":""},
+        "SessionID": "0DUOWLC0Z4"
+    },
+    {
+        "date": "2024-02-18T10:17:49.290000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T09:17:48","ActivityTypeEnum":100000020,"AgreementNumber":"85080","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "7JEX66IFMM"
+    },
+    {
+        "date": "2024-02-18T10:18:48.910000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106031812","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "H3APUSHMU5"
+    },
+    {
+        "date": "2024-02-18T10:20:12.310000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"63fb35c3-1be4-4b4c-a9e4-1a83c19acd7b","rentCustomerId":"CC26120","firstName":"יעקב","lastName":"חסין","governmentId":"25579988","telephone1":"0525530078","telephone2":"046751900"},
+        "SessionID": "26S9SUFMOH"
+    },
+    {
+        "date": "2024-02-18T10:20:33.080000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "UpdateCrmCustomer",
+        "message":{"transactionid":"7e2ff449-63f2-4cd1-bbd7-a9e3b55a69ef","rentCustomerId":"IS1610494","firstName":"פנינה צליל","lastName":"פרגי","governmentId":"314940784","telephone1":"0547213935","telephone2":""},
+        "SessionID": "WCUALTC8T7"
+    },
+    {
+        "date": "2024-02-18T10:21:47.310000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"105972167","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "49AD35ZADO"
+    },
+    {
+        "date": "2024-02-18T10:28:57.470000Z",
+        "type": "Information",
+        "service": "CrmService",
+        "class": "CarActivityWS",
+        "message":{"ActivityDate":"2024-02-18T00:00:00","ActivityTypeEnum":100000021,"AgreementNumber":"106150523","CarNumber":"","CarReturnDate":null,"CustomerID":"","DeliveryFormNumber":"","InvoiceNumber":""},
+        "SessionID": "V9RUHZ01KB"
+    }
+]
