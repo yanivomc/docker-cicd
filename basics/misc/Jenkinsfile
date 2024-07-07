@@ -19,7 +19,7 @@ node {
      }
    }
    stage('docker run') {
-      sh 'docker run --rm -tid --name docker_test -p 3000 Guy-Zamir-78/docker-nodejs-demo:latest'
+      sh "docker run --rm -tid --name docker_test -p 3000 Guy-Zamir-78/docker-nodejs-demo:latest${commit_id}"
       sh 'docker kill docker_test'
      }
    }
