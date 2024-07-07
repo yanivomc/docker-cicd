@@ -14,13 +14,13 @@ node {
      }
    }
    stage('docker build/push') {
-     docker.withRegistry('https://index.docker.io/v1/', 'dockeryaniv') {
-       def app = docker.build("yanivomc/docker-nodejs-demo:${commit_id}", '.').push()
+     docker.withRegistry('https://index.docker.io/v1/', 'Guy-Zamir-78') {
+       def app = docker.build("Guy-Zamir-78/docker-nodejs-demo:${commit_id}", '.').push()
      }
    }
    stage('docker run') {
      sh label: '', script: '''docker rm docker_test
-      docker run --rm -tid --name docker_test -p 3000 yanivomc/docker-nodejs-demo:latest
+      docker run --rm -tid --name docker_test -p 3000 Guy-Zamir-78/docker-nodejs-demo:latest
       docker kill docker_test
       
       '''
