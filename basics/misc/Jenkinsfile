@@ -1,6 +1,6 @@
 node {
    def commit_id
-   def docker_login = '75b14758-c001-470c-beb6-37bd074c258c'
+   def docker_login = 'guydocker'
    def docker_image = 'guyzzamirdevops/docker-nodejs-demo'
    stage('step pre') {
      checkout scm
