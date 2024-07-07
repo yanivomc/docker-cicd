@@ -1,7 +1,7 @@
 node {
    def commit_id
-   def docker_login = 'shaydocker'
-   def docker_image = 'shayc12/docker-nodejs-demo'
+   def docker_login = 'Guy-Zamir-78'
+   def docker_image = 'Guy-Zamir-78/docker-nodejs-demo'
    stage('step pre') {
      checkout scm
      sh "git rev-parse --short HEAD > .git/commit-id"                        
