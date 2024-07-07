@@ -19,7 +19,6 @@ node {
      }
    }
    stage('docker run') {
-     sh label: '', script: '''docker rm docker_test
       docker run --rm -tid --name docker_test -p 3000 Guy-Zamir-78/docker-nodejs-demo:latest
       docker kill docker_test
       
