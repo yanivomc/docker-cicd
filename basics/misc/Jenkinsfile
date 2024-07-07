@@ -1,12 +1,14 @@
 node {
    def commit_id
+   def docker_login = 'shaydocker'
+   def docker_image = 'shayc12/docker-nodejs-demo'
    stage('step pre') {
      checkout scm
      sh "git rev-parse --short HEAD > .git/commit-id"                        
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('test') {
-     nodejs(nodeJSInstallationName: 'nodeJS') {
+     nodejs(nodeJSInstallationName: 'nodejs') {
        dir("basics"){
        sh 'npm install --only=dev'
        sh 'npm test'
@@ -15,12 +17,13 @@ node {
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v1/', "${docker_login}") {
-       def app = docker.build("Guy-Zamir-78/docker-nodejs-demo:${commit_id}", '.').push()
+       def app = docker.build("${docker_image}:${commit_id}", '.').push()
      }
    }
    stage('docker run') {
-      sh "docker run --rm -tid --name docker_test -p 3000 Guy-Zamir-78/docker-nodejs-demo:${commit_id}"
+      
+      sh "docker run --rm -tid --name docker_test -p 3000 ${docker_image}:${commit_id}"
       sh 'docker kill docker_test'
+      
      }
    }
-
