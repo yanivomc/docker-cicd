@@ -12,7 +12,7 @@ job('NodeJS Docker example') {
     
     steps {
         dockerBuildAndPublish {
-            repositoryName('guy-zamir-78/amdocsapp')
+            repositoryName('guy-zamir-78/docker-nodejs-demo')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('guydocker')
             buildContext('./basics/')
