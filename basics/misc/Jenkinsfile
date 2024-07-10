@@ -22,8 +22,8 @@ node {
    }
    stage('docker run') {
       
-      sh "docker run --rm -tid --name docker_test -p 3000 ${docker_image}:${commit_id}"
-      sh 'docker kill docker_test'
+      sh "docker run --rm -tid --name docker-nodejs-demo -p 3000 ${docker_image}:${commit_id}"
+      sh 'docker kill docker-nodejs-demo'
       
      }
    }
