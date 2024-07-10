@@ -23,6 +23,7 @@ node {
    stage('docker run') {
       
       sh "docker run --rm -tid --name docker-nodejs-demo -p 3000 ${docker_image}:${commit_id}"
+      sleep 10
       sh 'docker kill docker-nodejs-demo'
       
      }
