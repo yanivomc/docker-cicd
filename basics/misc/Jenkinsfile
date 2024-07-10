@@ -2,28 +2,30 @@ node {
    def commit_id
    stage('step pre') {
      checkout scm
-     sh "git rev-parse --short HEAD > .git/commit-id"                        
+     sh "git rev-parse --short HEAD > .git/commit-id"
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('test') {
      nodejs(nodeJSInstallationName: 'nodejs') {
        dir("basics"){
-       sh 'npm install --only=dev'
-       sh 'npm test'
+         sh 'npm install --only=dev'
+         sh 'npm test'
        }
      }
    }
    stage('docker build/push') {
      docker.withRegistry('https://index.docker.io/v1/', 'guydocker') {
-       def app = docker.build("guyzzamirdevops/docker-nodejs-demo:${commit_id}", '.').push()
+       def app = docker.build("guyzzamirdevops/docker-nodejs-demo:${commit_id}", '.')
+       app.push()
+       sh "docker tag guyzzamirdevops/docker-nodejs-demo:${commit_id} guyzzamirdevops/docker-nodejs-demo:latest"
+       sh "docker push guyzzamirdevops/docker-nodejs-demo:latest"
      }
    }
    stage('docker run') {
      sh label: '', script: '''docker rm -f docker-nodejs-demo || true
      sleep 10
-      docker run --rm -tid --name docker-nodejs-demo -p 3000 guyzzamirdevops/docker-nodejs-demo:latest
-      docker kill docker-nodejs-demo
-      
-      '''
-     }
+     docker run --rm -tid --name docker-nodejs-demo -p 3000:3000 guyzzamirdevops/docker-nodejs-demo:latest
+     docker kill docker-nodejs-demo
+     '''
    }
+}
