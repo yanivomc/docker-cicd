@@ -1,7 +1,7 @@
 node {
    def commit_id
    def docker_login = 'guydocker'
-   def docker_image = 'Guy-Zamir-78/amdocsapp'
+   def docker_image = 'guy-zamir-78/amdocsapp'
    def docker_image_lowercase = docker_image.toLowerCase() // Convert to lowercase
 
    stage('step pre') {
