@@ -19,7 +19,7 @@ node {
      }
    }
    stage('docker run') {
-     sh label: '', script: '''docker rm docker-nodejs-demo
+     sh label: '', script: '''docker rm -f docker-nodejs-demo || true
      sleep 10
       docker run --rm -tid --name docker-nodejs-demo -p 3000 guyzzamirdevops/docker-nodejs-demo:latest
       docker kill docker-nodejs-demo
