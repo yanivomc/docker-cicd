@@ -1,6 +1,6 @@
 job('NodeJS Docker example') {
     scm {
-        git('git://github.com/Guy-Zamir-78/docker-cicd.git','master') {  node -> // is hudson.plugins.git.GitSCM
+        git('git://github.com/guy-zamir-78/docker-cicd.git','master') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
             node / gitConfigEmail('jenkins-dsl@devophift.work')
         }
@@ -12,7 +12,7 @@ job('NodeJS Docker example') {
     
     steps {
         dockerBuildAndPublish {
-            repositoryName('Guy-Zamir-78/amdocsapp')
+            repositoryName('guy-zamir-78/amdocsapp')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('guydocker')
             buildContext('./basics/')
