@@ -46,6 +46,8 @@ services:
     image: docker.elastic.co/beats/filebeat:8.15.0
     container_name: filebeat
     user: root
+    environment:
+      - "logging.level=debug"
     volumes:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
