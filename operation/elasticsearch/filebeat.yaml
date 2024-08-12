@@ -1,0 +1,19 @@
+filebeat.inputs:
+- type: container
+  paths:
+    - /var/lib/docker/containers/*/*.log
+  processors:
+    - add_docker_metadata: ~
+  json.keys_under_root: true
+  json.add_error_key: true
+  json.message_key: message
+
+output.elasticsearch:
+  hosts: ["http://es01:9200"]
+  index: "logsdemo"
+  # username: "elastic"  # Optional: if authentication is required
+  # password: "changeme"  # Optional: if authentication is required
+
+setup.template.name: "logsdemo"
+setup.template.pattern: "logsdemo-*"
+setup.ilm.enabled: false
