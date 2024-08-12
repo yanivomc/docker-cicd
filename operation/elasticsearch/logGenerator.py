@@ -63,6 +63,7 @@ def generate_logs(num_logs):
 # Generate 10 logs and write to 'logs.json'
 while True:
     logs = generate_logs(1)
-    print(json.dumps(logs, indent=4))
+    # print the logs in json format compressed to one line
+    print(json.dumps(logs, separators=(',', ':')))
     sleep(0.5)
 	
