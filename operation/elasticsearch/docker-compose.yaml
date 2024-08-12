@@ -53,9 +53,8 @@ services:
       - esnet
 
   logger:
-    image: eldan-repo.devopshift.com/log-generator:1.0
-    container_name: log-generator
     build: ./Dockerfile-loggenerator
+    container_name: log-generator
     networks:
       - esnet
 
