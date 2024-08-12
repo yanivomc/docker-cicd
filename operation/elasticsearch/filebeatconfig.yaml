@@ -6,10 +6,13 @@ filebeat.inputs:
     - add_docker_metadata: ~
   json.keys_under_root: true
   json.add_error_key: true
-  json.message_key: message
+  json.message_key: log
+  multiline.pattern: '^{'
+  multiline.negate: true
+  multiline.match: after
   containers:
     ids:
-      - "*log-generator*" # This is the container name
+      - "*log-generator*"
 
 output.elasticsearch:
   hosts: ["http://es01:9200"]
@@ -20,4 +23,5 @@ output.elasticsearch:
 setup.template.name: "logsdemo"
 setup.template.pattern: "logsdemo-*"
 setup.ilm.enabled: false
+
 logging.level: debug
