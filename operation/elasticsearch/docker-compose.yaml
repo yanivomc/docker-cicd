@@ -52,6 +52,15 @@ services:
     networks:
       - esnet
 
+
+# Log generator service
+	log-generator:
+		image: eldan-repo.devopshift.com/log-generator:1.0
+		container_name: log-generator
+		build: ./Dockerfile-loggenerator
+		networks:
+			- esnet
+
 volumes:
   esdata01:
     driver: local
