@@ -7,6 +7,9 @@ filebeat.inputs:
   json.keys_under_root: true
   json.add_error_key: true
   json.message_key: message
+  containers:
+    ids:
+      - "*log-generator*" # This is the container name
 
 output.elasticsearch:
   hosts: ["http://es01:9200"]
