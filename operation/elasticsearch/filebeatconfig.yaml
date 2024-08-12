@@ -20,3 +20,4 @@ output.elasticsearch:
 setup.template.name: "logsdemo"
 setup.template.pattern: "logsdemo-*"
 setup.ilm.enabled: false
+logging.level: debug

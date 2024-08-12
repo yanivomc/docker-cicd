@@ -54,6 +54,9 @@ services:
       - ./filebeatconfig.yaml:/usr/share/filebeat/filebeat.yml:ro
     depends_on:
       - es01
+      - es02
+    networks:
+      - esnet
 
   kib01:
     image: docker.elastic.co/kibana/kibana:8.15.0
