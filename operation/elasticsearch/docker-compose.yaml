@@ -51,13 +51,14 @@ services:
       - 5601:5601
     networks:
       - esnet
-	
-	loggenerator:
-		image: eldan-repo.devopshift.com/log-generator:1.0
-		container_name: log-generator
-		build: ./Dockerfile-loggenerator
-		networks:
-			- esnet
+
+  logger:
+    image: eldan-repo.devopshift.com/log-generator:1.0
+    container_name: log-generator
+    build: ./Dockerfile-loggenerator
+    networks:
+      - esnet
+
 
 volumes:
   esdata01:
