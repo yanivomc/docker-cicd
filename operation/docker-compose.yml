@@ -9,21 +9,6 @@ services:
             - '50000:50000'
         networks:
             - jb
-    jenkins-slave:
-        build: ./jenkins/slave
-        image: eldan-repo.devopshift.com/jenkins-slave:1.0
-        # Removed container name to support scale out option
-        #container_name: jenkins-slave
-        restart: always
-        environment:
-            - 'JENKINS_URL=http://jenkins:8080/jenkins/'
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock  # Expose the docker daemon in the container
-            - ./volume:/home/jenkins # Avoid mysql volume mount issue
-        networks:
-        - jb
-        depends_on:
-            - jenkins
 
     nginx:
       image: nginx:1.25.3-alpine

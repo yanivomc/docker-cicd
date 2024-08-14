@@ -1,18 +1,32 @@
-FROM ubuntu:latest as builder 
-
-# Install Docker CLI in the agent
-RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
-RUN apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg |  gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
-RUN add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-RUN apt update && apt -y install docker-ce docker-ce-cli containerd.io
-
-# configure python3.8
-RUN apt -y install software-properties-common && add-apt-repository ppa:deadsnakes/ppa -y
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install tzdata
-
-RUN apt install -y default-jdk curl python3 python3-pip git
-
-###
+# Use Windows Server Core 2022 as base image
+FROM jenkins/agent:3206.vb_15dcf73f6a_9-9-jdk21-windowsservercore-ltsc2022
 
 
+
+# Install Docker CLI
+RUN powershell -Command \
+    Invoke-WebRequest -UseBasicParsing -Uri 'https://download.docker.com/win/static/stable/x86_64/docker-20.10.7.zip' -OutFile docker.zip ; \
+    Expand-Archive -Path docker.zip -DestinationPath C:\docker ; \
+    Remove-Item -Force docker.zip
+
+
+# Install JDK, curl, Python 3, Python 3 pip, and Git
+RUN powershell -Command \
+    Invoke-WebRequest -UseBasicParsing -Uri 'https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe' -OutFile python-installer.exe ; \
+    Start-Process -Wait -FilePath python-installer.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' ; \
+    Remove-Item -Force python-installer.exe ; \
+    Invoke-WebRequest -UseBasicParsing -Uri 'https://github.com/git-for-windows/git/releases/download/v2.32.0.windows.2/Git-2.32.0.2-64-bit.exe' -OutFile git-installer.exe ; \
+    Start-Process -Wait -FilePath git-installer.exe -ArgumentList '/VERYSILENT /NORESTART' ; \
+    Remove-Item -Force git-installer.exe ;
+
+# Ensure Docker CLI is in PATH
+# Use setx to update the PATH environment variable correctly
+RUN setx /M PATH $(${Env:PATH} + \";C:\docker\docker\")
+
+# Debugging step to ensure PATH is set correctly
+#RUN echo "Current PATH: $env:PATH"
+
+
+
+# Additional installations (if needed)
+# For instance, you could install Python, Git, or Node.js here following a similar pattern to the above installations.
