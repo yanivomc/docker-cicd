@@ -93,6 +93,11 @@ services:
 
 networks:
   jb:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.50.0.0/16
+
 
 volumes:
   nexus-data:
