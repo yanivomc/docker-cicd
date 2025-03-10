@@ -1,4 +1,4 @@
-FROM codercom/code-server:latest as builder
+FROM codercom/code-server:latest AS builder
 # Install extensions docker cli
 USER root
 RUN  apt-get update
@@ -13,6 +13,7 @@ RUN echo \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update
 RUN apt-get -y install docker-ce-cli
+COPY ./config.yaml /home/coder/.config/code-server/config.yaml
 
 
 
