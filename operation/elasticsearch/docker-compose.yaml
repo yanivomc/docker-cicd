@@ -1,7 +1,7 @@
 
 services:
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.3
     container_name: es01
     environment:
       - node.name=es01
@@ -23,7 +23,7 @@ services:
       - esnetnew
 
   es02:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.15.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.3
     container_name: es02
     environment:
       - node.name=es02
@@ -42,24 +42,24 @@ services:
     networks:
       - esnetnew
 
-  filebeat:
-    image: docker.elastic.co/beats/filebeat:8.15.0
-    container_name: filebeat
-    user: root
-    environment:
-      - "logging.level=debug"
-    volumes:
-      - /var/lib/docker/containers:/var/lib/docker/containers:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./filebeatconfig.yaml:/usr/share/filebeat/filebeat.yml:ro
-    depends_on:
-      - es01
-      - es02
-    networks:
-      - esnetnew
+  # filebeat:
+  #   image: docker.elastic.co/beats/filebeat:8.17.3
+  #   container_name: filebeat
+  #   user: root
+  #   environment:
+  #     - "logging.level=debug"
+  #   volumes:
+  #     - /var/lib/docker/containers:/var/lib/docker/containers:ro
+  #     - /var/run/docker.sock:/var/run/docker.sock:ro
+  #     - ./filebeatconfig.yaml:/usr/share/filebeat/filebeat.yml:ro
+  #   depends_on:
+  #     - es01
+  #     - es02
+  #   networks:
+  #     - esnetnew
 
   kib01:
-    image: docker.elastic.co/kibana/kibana:8.15.0
+    image: docker.elastic.co/kibana/kibana:8.17.3
     container_name: kib01
     environment:
       ELASTICSEARCH_HOSTS: http://es01:9200
@@ -68,12 +68,12 @@ services:
     networks:
       - esnetnew
 
-  logger:
-    build:
-      dockerfile: ./Dockerfile
-    container_name: log-generator
-    networks:
-      - esnetnew
+  # logger:
+  #   build:
+  #     dockerfile: ./Dockerfile
+  #   container_name: log-generator
+  #   networks:
+  #     - esnetnew
 
 
 volumes:
