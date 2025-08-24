@@ -7,8 +7,8 @@ services:
     environment:
       - node.name=es01
       - cluster.name=es-docker-cluster
-      # - discovery.seed_hosts=es02
-      - discovery.type=single-node            # <-- 1-box setup      
+      - discovery.seed_hosts=es02
+      # - discovery.type=single-node            # <-- 1-box setup      
       - cluster.initial_master_nodes=es01,es02
       - bootstrap.memory_lock=true
       # - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
@@ -25,25 +25,25 @@ services:
     networks:
       - esnetnew
 
-  # es02:
-  #   image: docker.elastic.co/elasticsearch/elasticsearch:9.1.2
-  #   container_name: es02
-  #   environment:
-  #     - node.name=es02
-  #     - cluster.name=es-docker-cluster
-  #     - discovery.seed_hosts=es01
-  #     - cluster.initial_master_nodes=es01,es02
-  #     - bootstrap.memory_lock=true
-  #     - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
-  #     - xpack.security.enabled=false
-  #   ulimits:
-  #     memlock:
-  #       soft: -1
-  #       hard: -1
-  #   volumes:
-  #     - esdata02:/usr/share/elasticsearch/data
-  #   networks:
-  #     - esnetnew
+  es02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.1.2
+    container_name: es02
+    environment:
+      - node.name=es02
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=es01
+      - cluster.initial_master_nodes=es01,es02
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      - xpack.security.enabled=false
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - esdata02:/usr/share/elasticsearch/data
+    networks:
+      - esnetnew
 
   # filebeat:
   #   image: docker.elastic.co/beats/filebeat:8.17.3
