@@ -20,7 +20,7 @@ services:
         hard: -1
     volumes:
       - esdata01:/usr/share/elasticsearch/data
-      - /tmp/es-snapshots:/snapshots
+      - ./snapshots/es-snapshots:/snapshots
     ports:
       - 9200:9200
     networks:
@@ -44,7 +44,7 @@ services:
         hard: -1
     volumes:
       - esdata02:/usr/share/elasticsearch/data
-      - /tmp/es-snapshots:/snapshots
+      - ./snapshots/es-snapshots:/snapshots
     networks:
       - esnetnew
 
