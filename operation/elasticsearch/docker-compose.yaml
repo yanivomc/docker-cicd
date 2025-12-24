@@ -13,12 +13,14 @@ services:
       # - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - ES_JAVA_OPTS=-Xms8g -Xmx8g            # <-- heap for 16 GB host (dedicated)
       - xpack.security.enabled=false
+      - path.repo=/snapshots
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
       - esdata01:/usr/share/elasticsearch/data
+      - /tmp/es-snapshots:/snapshots
     ports:
       - 9200:9200
     networks:
@@ -35,12 +37,14 @@ services:
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       - xpack.security.enabled=false
+      - path.repo=/snapshots
     ulimits:
       memlock:
         soft: -1
         hard: -1
     volumes:
       - esdata02:/usr/share/elasticsearch/data
+      - /tmp/es-snapshots:/snapshots
     networks:
       - esnetnew
 
